@@ -12,7 +12,7 @@ import com.example.dbdemo.MyApplication;
 import com.example.dbdemo.R;
 import com.example.dbdemo.dao.*;
 
-public class AddData extends AppCompatActivity {
+public class AddData_old extends AppCompatActivity {
     private EditText edit_name,edit_phone;
     private Button but;
     private UtilDao dao;
@@ -20,7 +20,7 @@ public class AddData extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_adddata);
+        setContentView(R.layout.activity_adddata_old);
         //初始化组件
         initWidget();
         DbUtil();
