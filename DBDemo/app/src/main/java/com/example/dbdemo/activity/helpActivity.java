@@ -1,4 +1,17 @@
 package com.example.dbdemo.activity;
 
-public class helpActivity {
+import android.app.Activity;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+
+import com.example.dbdemo.R;
+
+public class helpActivity extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_zzcxjg);
+    }
+
 }

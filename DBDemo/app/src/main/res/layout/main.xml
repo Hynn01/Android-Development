@@ -10,7 +10,7 @@
         android:layout_height="50dp"
         android:layout_alignParentTop="true">
 
-        //主界面标题-北京公交查询图片
+        <!--主界面标题-北京公交查询图片-->
         <TextView
             android:id="@+id/main_title"
             android:layout_width="wrap_content"
@@ -20,7 +20,7 @@
             android:gravity="center"
             android:textSize="18sp"/>
 
-        //"关于"图片按钮
+        <!--"关于"图片按钮-->
         <ImageButton
             android:id="@+id/bt_about"
             android:layout_width="50dp"
@@ -30,7 +30,7 @@
             android:layout_marginRight="83dp"
             android:layout_toLeftOf="@id/main_title" />
 
-        //"帮助"图片按钮
+        <!--"帮助"图片按钮-->
         <ImageButton
             android:id="@+id/bt_help"
             android:layout_width="50dp"
@@ -43,7 +43,7 @@
 
     </RelativeLayout>
 
-    //广告轮播
+    <!--广告轮播-->
     <RelativeLayout
         android:id="@+id/second_rel"
         android:layout_width="match_parent"
@@ -82,7 +82,7 @@
     </RelativeLayout>
     
 
-    //查询布局
+    <!--查询布局-->
     <RelativeLayout
         android:id="@+id/third_rel"
         android:layout_width="match_parent"
@@ -91,7 +91,7 @@
         
 
 
-        //"站站查询"图片按钮
+        <!--"站站查询"图片按钮-->
         <ImageButton
             android:id="@+id/bt_zzcx"
             android:layout_width="165dp"
@@ -101,8 +101,7 @@
 
              />
 
-        //"车次查询"图片按钮
-
+        <!--"车次查询"图片按钮-->
         <ImageButton
             android:id="@+id/bt_cccx"
             android:layout_width="165dp"
@@ -111,10 +110,9 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
             android:layout_toRightOf="@id/bt_zzcx"
-
             />
 
-        //"车站查询"图片按钮
+        <!--"车站查询"图片按钮-->
 
         <ImageButton
             android:id="@+id/bt_czcx"
@@ -126,7 +124,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginBottom="60dp" />
 
-        //"站次添加"图片按钮
+        <!--"站次添加"图片按钮-->
 
         <ImageButton
             android:id="@+id/bt_tjgn"
@@ -137,10 +135,6 @@
             android:layout_marginRight="20dp"
             android:layout_marginBottom="60dp"
             android:layout_toRightOf="@id/bt_czcx" />
-
-
-
-
 
     </RelativeLayout>
     
