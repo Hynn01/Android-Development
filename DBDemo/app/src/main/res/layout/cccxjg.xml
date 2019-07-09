@@ -12,7 +12,7 @@
         android:layout_height="60dp"
         android:layout_alignParentTop="true">
 
-        <!--车次查询-->
+        <!--车车查询结果-->
         <TextView
             android:id="@+id/cccxjg_title"
             android:layout_width="wrap_content"
@@ -25,7 +25,7 @@
 
         <!--"返回"图片按钮-->
         <ImageButton
-            android:id="@+id/back_cccx"
+            android:id="@+id/back_cccxjg"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_centerHorizontal="true"
@@ -43,7 +43,7 @@
 
 
     <ListView
-        android:id="@+id/list_two"
+        android:id="@+id/list_cccxjg"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
