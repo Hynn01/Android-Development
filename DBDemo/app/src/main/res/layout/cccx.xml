@@ -133,4 +133,5 @@
         android:padding="50dp"
         android:scaleType="fitCenter"
         android:src="@drawable/search" />
+
 </LinearLayout>

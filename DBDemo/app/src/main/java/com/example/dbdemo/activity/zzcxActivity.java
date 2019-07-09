@@ -11,8 +11,10 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.dbdemo.R;
+import com.youth.banner.Banner;
 
 import java.util.ArrayList;
+import java.util.List;
 
 //站站查询
 public class zzcxActivity extends Activity {
@@ -29,14 +31,24 @@ public class zzcxActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.zzcx);
 
-//        //（4）获得查询按钮ID
-//        bt_query=(Button)findViewById(R.id.bt_query);
-//
-//        //（5）返回按钮ID
-//        bt_back=(ImageButton)findViewById(R.id.bt_back);
-//
+        Banner banner = (Banner) findViewById(R.id.banner_zzcx);
+        //本地图片数据（资源文件）
+        List<Integer> list=new ArrayList<>();
+        list.add(R.mipmap.ad1);
+        list.add(R.mipmap.ad2);
+        list.add(R.mipmap.ad3);
+        banner.setImages(list)
+                .setImageLoader(new GlideImageLoader())
+                .start();
+
+        //（4）获得查询按钮ID
+        bt_query=(Button)findViewById(R.id.searchButton);
+
+        //（5）返回按钮ID
+        bt_back=(ImageButton)findViewById(R.id.back_zzcx);
+
 //        //（10）为查询按钮添加监听
 //        bt_query.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -45,11 +57,11 @@ public class zzcxActivity extends Activity {
 //            }
 //        });
 //
-//        //（11）获得出发站文本框引用
-//        //（12）获得中转站文本框引用
-//        //（13）获得终点站文本框引用
-//        tv_start=(AutoCompleteTextView) findViewById(R.id.tv_start);
-//        tv_end=(AutoCompleteTextView) findViewById(R.id.tv_end);
+        //（11）获得出发站文本框引用
+        //（12）获得中转站文本框引用
+        //（13）获得终点站文本框引用
+        tv_start=(AutoCompleteTextView) findViewById(R.id.tv_start);
+        tv_end=(AutoCompleteTextView) findViewById(R.id.tv_end);
 //
 //        //（6）发站文本框添加适配器
 //        // //（7）为中转站文本框添加适配
@@ -84,16 +96,16 @@ public class zzcxActivity extends Activity {
 //            Intent intent = new Intent(zzcxActivity.this,zzcxjgActivity.class);
 //            startActivity(intent);
 //        }
-//
-//        //（26）为返回按钮添加监听
-//        //（27）返回主菜单界面
-//        bt_back.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(zzcxActivity.this,MainActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+
+        //（26）为返回按钮添加监听
+        //（27）返回主菜单界面
+        bt_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(zzcxActivity.this,MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 }
