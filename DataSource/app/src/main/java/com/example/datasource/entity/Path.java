@@ -1,4 +1,6 @@
-package com.example.datasource.logic;
+package com.example.datasource.entity;
+
+import com.example.datasource.entity.Station;
 
 import java.util.ArrayList;
 
@@ -14,4 +16,15 @@ public class Path {
     public void addTrans(Station station){
         transferStation.add(station);
     }
+
+    public String toString(){
+        String res = "";
+        res += start.name;
+        for(Station station : transferStation){
+            res += station.name + " ";
+        }
+        res += end.name;
+        return res;
+    }
 }
+
