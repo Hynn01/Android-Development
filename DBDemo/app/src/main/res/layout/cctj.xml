@@ -10,7 +10,7 @@
     <RelativeLayout
         android:id="@+id/first_rel"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:layout_alignParentTop="true">
 
         //站站查询
@@ -18,10 +18,11 @@
         <TextView
             android:id="@+id/cctj_title"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
             android:layout_centerInParent="true"
             android:gravity="center"
-            android:textSize="18sp"
+            android:textColor="#020202"
+            android:textSize="30sp"
             tools:text="车站添加" />
 
         //"返回"图片按钮
@@ -200,7 +201,6 @@
     </LinearLayout>
 
 
-
     <Button
         android:id="@+id/add_cztj"
         android:layout_width="wrap_content"
@@ -209,5 +209,6 @@
         android:layout_gravity="center"
         android:background="0000000"
         android:scaleType="fitCenter"
-        android:text="添加" />
+        android:text="添加"
+        android:textSize="20sp" />
 </LinearLayout>
