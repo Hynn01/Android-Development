@@ -9,7 +9,7 @@
     <RelativeLayout
         android:id="@+id/first_rel"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="60dp"
         android:layout_alignParentTop="true">
 
         <!--车次查询-->
@@ -123,15 +123,11 @@
 
     </LinearLayout>
 
-    <ImageButton
+    <Button
         android:id="@+id/search_cccx"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center"
-        android:background="#00FFFFFF"
-        android:padding="50dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/search" />
 
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="查询"
+        android:textSize="20sp" />
 </LinearLayout>

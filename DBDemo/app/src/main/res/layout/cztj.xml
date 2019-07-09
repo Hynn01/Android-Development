@@ -1,6 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
+
+    <RelativeLayout
+        android:id="@+id/first_rel"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true">
+
+        //站站查询
+
+        <TextView
+            android:id="@+id/cztj_title"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="30sp"
+            tools:text="车站添加" />
+
+        //"返回"图片按钮
+        <ImageButton
+            android:id="@+id/back_cztj"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="83dp"
+            android:layout_toLeftOf="@id/cztj_title" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/second_rel"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_below="@id/first_rel">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout android:id="@+id/dotLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:padding="8dp"
+            android:gravity="right"
+            android:orientation="horizontal">    //默认情况下面的点
+
+            <View
+                android:id="@+id/v_dot1"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:background="@drawable/dot_focus" />
+
+            <View
+                android:id="@+id/v_dot2"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/dot_blur" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/third_rel"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/second_rel"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/blackOutLayoutNumber1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="left|center_horizontal"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="车站名称:"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/blackOutNumber1"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@null"
+                android:hint="请输入车站名称"
+                android:inputType="number"
+                android:paddingLeft="2dp"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/blackOutLayoutNumber2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="left|center_horizontal"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="车站简称:"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/blackOutNumber2"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@null"
+                android:hint="请输入车站简称"
+                android:inputType="number"
+                android:paddingLeft="2dp"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/add_cztj"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:background="0000000"
+        android:scaleType="fitCenter"
+        android:text="添加" />
 </LinearLayout>
