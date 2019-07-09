@@ -26,6 +26,7 @@
             tools:text="车站添加" />
 
         //"返回"图片按钮
+
         <ImageButton
             android:id="@+id/back_cztj"
             android:layout_width="50dp"
@@ -33,7 +34,9 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="83dp"
-            android:layout_toLeftOf="@id/cztj_title" />
+            android:layout_toLeftOf="@id/cztj_title"
+            android:background="#00FFFFFF"
+            android:src="@android:drawable/ic_menu_revert" />
 
 
     </RelativeLayout>

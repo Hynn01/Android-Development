@@ -34,7 +34,9 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="83dp"
-            android:layout_toLeftOf="@id/zctj_title" />
+            android:layout_toLeftOf="@id/zctj_title"
+            android:background="#00FFFFFF"
+            android:src="@android:drawable/ic_menu_revert" />
         android:layout_marginTop="15dp"
         android:layout_marginRight="70dp"
         android:layout_marginBottom="15dp"
