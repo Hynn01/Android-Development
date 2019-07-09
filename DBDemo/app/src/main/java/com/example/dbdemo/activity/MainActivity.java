@@ -16,7 +16,8 @@ public class MainActivity extends Activity {
     private ImageButton bt_zzcx;
     private ImageButton bt_cccx;
     private ImageButton bt_czcx;
-    private ImageButton bt_fjgn;
+    private ImageButton bt_tjgn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -28,11 +29,16 @@ public class MainActivity extends Activity {
 
         //（4）获取菜单界面下的各个按钮的引用（包括，关于help，站站查询，车次查询，车站查询，添加功能的按钮）
         bt_about=(Button)findViewById(R.id.bt_about);
+        bt_help=(Button)findViewById(R.id.bt_help);
+        bt_zzcx=(Button)findViewById(R.id.bt_zzcx);
+        bt_cccx=(Button)findViewById(R.id.bt_cccx);
+        bt_czcx=(Button)findViewById(R.id.bt_czcx);
+        bt_tjgn=(Button)findViewById(R.id.bt_tjgn);
 
         //以下为各个按钮监听的处理的实现
         //（5）为关干按钮添加监听 关于按钮的监听 发消息进入关于界面，参考上面send MSG的方法
         //给bt1添加点击事件
-        bt1.setOnClickListener(new View.OnClickListener() {
+        bt_about.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 /*
@@ -45,23 +51,69 @@ public class MainActivity extends Activity {
         });
 
         //（6）帮助查询的监听 发消息进入帮助界面
-        bt1.setOnClickListener(new View.OnClickListener() {
+        bt_help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 /*
                 第一个参数:上下文对象this
                 第二个参数:目标文件
                  */
-                Intent intent = new Intent(MainActivity.this,aboutActivity.class);
+                Intent intent = new Intent(MainActivity.this,helpActivity.class);
                 startActivity(intent);
             }
         });
 
         //（7）站站查询按钮的监听 进入站站查询模块
-        //（8）车次查询按钮的监听 进入车次查询模块
-        //（9）车站所有车次查询 进入车站查询模块
-        //（10）附加功能按钮的监听 进入附加功能模块
+        bt_zzcx.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                /*
+                第一个参数:上下文对象this
+                第二个参数:目标文件
+                 */
+                Intent intent = new Intent(MainActivity.this,zzcxActivity.class);
+                startActivity(intent);
+            }
+        });
 
+        //（8）车次查询按钮的监听 进入车次查询模块
+        bt_cccx.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                /*
+                第一个参数:上下文对象this
+                第二个参数:目标文件
+                 */
+                Intent intent = new Intent(MainActivity.this,cccxActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //（9）车站所有车次查询 进入车站查询模块
+        bt_czcx.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                /*
+                第一个参数:上下文对象this
+                第二个参数:目标文件
+                 */
+                Intent intent = new Intent(MainActivity.this,czcccxActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //（10）添加功能按钮的监听 进入添加功能模块
+        bt_tjgn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                /*
+                第一个参数:上下文对象this
+                第二个参数:目标文件
+                 */
+                Intent intent = new Intent(MainActivity.this,tjgnActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 }
