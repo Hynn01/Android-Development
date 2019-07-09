@@ -21,12 +21,12 @@
             android:gravity="center"
             android:textColor="#000000"
             android:textSize="20sp"
-            tools:text="帮助" />
+            android:text="帮助" />
 
         <!--//"返回"图片按钮-->
 
         <ImageButton
-            android:id="@+id/back_help"
+            android:id="@+id/bt_back"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="5dp"
@@ -125,7 +125,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:text="车站功能介绍"
+            android:text="车站查询功能介绍"
             android:textSize="20sp" />
         <TextView
             android:id="@+id/textView4"
