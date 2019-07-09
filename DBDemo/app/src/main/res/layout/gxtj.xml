@@ -14,29 +14,52 @@
 
         <!--//关系添加-->
 
+        <!--<TextView-->
+            <!--android:id="@+id/gctj_title"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="80dp"-->
+            <!--android:layout_centerInParent="true"-->
+            <!--android:gravity="center"-->
+            <!--android:textColor="#000000"-->
+            <!--android:textSize="20sp"-->
+            <!--tools:text="车站车次关系添加" />-->
+
+        <!--&lt;!&ndash;//"返回"图片按钮&ndash;&gt;-->
+
+        <!--<ImageButton-->
+            <!--android:id="@+id/back_gctj"-->
+            <!--android:layout_width="50dp"-->
+            <!--android:layout_height="50dp"-->
+            <!--android:layout_marginLeft="5dp"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:layout_marginRight="37dp"-->
+            <!--android:layout_toLeftOf="@id/gctj_title"-->
+            <!--android:background="#00FFFFFF"-->
+            <!--android:src="@android:drawable/ic_menu_revert" />-->
+        <!--//车次添加-->
+
         <TextView
-            android:id="@+id/gctj_title"
+            android:id="@+id/cctj_title"
             android:layout_width="wrap_content"
-            android:layout_height="80dp"
+            android:layout_height="60dp"
             android:layout_centerInParent="true"
             android:gravity="center"
-            android:textColor="#000000"
-            android:textSize="30sp"
-            tools:text="车站车次关系添加" />
+            android:textColor="#020202"
+            android:textSize="20sp"
+            android:text="关系添加" />
 
         <!--//"返回"图片按钮-->
 
         <ImageButton
-            android:id="@+id/back_gctj"
+            android:id="@+id/bt_back"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
-            android:layout_marginRight="37dp"
-            android:layout_toLeftOf="@id/gctj_title"
+            android:layout_marginRight="83dp"
+            android:layout_toLeftOf="@id/cctj_title"
             android:background="#00FFFFFF"
             android:src="@android:drawable/ic_menu_revert" />
-
 
     </RelativeLayout>
     <!--广告轮播-->
@@ -181,16 +204,13 @@
 
     </LinearLayout>
 
-
-
     <Button
-        android:id="@+id/add_cztj"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
+        android:id="@+id/bt_add"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:scaleType="fitCenter"
         android:text="添加"
-        android:textSize="20sp"
-        />
+        android:textSize="20sp" />
 </LinearLayout>

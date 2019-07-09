@@ -1,12 +1,23 @@
 package com.example.dbdemo.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.example.dbdemo.R;
+import com.youth.banner.Banner;
+
+import java.util.ArrayList;
+import java.util.List;
 
 //车次添加
 public class cctjActivity extends Activity {
+
+    private Button bt_add;
+    private ImageButton bt_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +27,32 @@ public class cctjActivity extends Activity {
         //（3）标识当前所在界面为车次添加界面
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cctj);
+
+        Banner banner = (Banner) findViewById(R.id.banner);
+        //本地图片数据（资源文件）
+        List<Integer> list=new ArrayList<>();
+        list.add(R.mipmap.ad1);
+        list.add(R.mipmap.ad2);
+        list.add(R.mipmap.ad3);
+        banner.setImages(list)
+                .setImageLoader(new GlideImageLoader())
+                .start();
+
+        //（4）获取添加按钮的引用
+        //（5）获取返回按钮的引用
+        bt_add=(Button)findViewById(R.id.bt_add);
+        bt_back=(ImageButton)findViewById(R.id.bt_back);
+
+        //（21）为返回按钮添加监听
+        //（22）在监听函数中返回添加功能
+        bt_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(cctjActivity.this,MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     //（4）获取查询按钮的引用

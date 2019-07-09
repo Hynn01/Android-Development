@@ -8,6 +8,10 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.example.dbdemo.R;
+import com.youth.banner.Banner;
+
+import java.util.ArrayList;
+import java.util.List;
 
 //车站添加
 public class cztjActivity extends Activity {
@@ -24,10 +28,20 @@ public class cztjActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cztj);
 
-//        //（4）获取添加按钮的引用
-//        //（5）获取返回按钮的引用
-//        bt_add=(Button)findViewById(R.id.bt_query);
-//        bt_back=(ImageButton)findViewById(R.id.bt_back);
+        Banner banner = (Banner) findViewById(R.id.banner);
+        //本地图片数据（资源文件）
+        List<Integer> list=new ArrayList<>();
+        list.add(R.mipmap.ad1);
+        list.add(R.mipmap.ad2);
+        list.add(R.mipmap.ad3);
+        banner.setImages(list)
+                .setImageLoader(new GlideImageLoader())
+                .start();
+
+        //（4）获取添加按钮的引用
+        //（5）获取返回按钮的引用
+        bt_add=(Button)findViewById(R.id.bt_add);
+        bt_back=(ImageButton)findViewById(R.id.bt_back);
 //
 //        //（6）为查询按钮添加监听
 //        bt_back.setOnClickListener(new View.OnClickListener() {

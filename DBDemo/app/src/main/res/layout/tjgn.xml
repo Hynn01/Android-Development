@@ -131,7 +131,7 @@
             android:id="@+id/bt_tjgx"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:text="车站关系添加"
+            android:text="车站车次关系添加"
             android:textSize="20sp" />
 
     </LinearLayout>
