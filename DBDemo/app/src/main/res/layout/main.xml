@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <RelativeLayout
         android:id="@+id/first_rel"
         android:layout_width="match_parent"
@@ -34,7 +33,7 @@
             android:layout_marginBottom="15dp"
             android:layout_toLeftOf="@id/main_title"
             android:background="#00FFFFFF"
-            tools:src="@android:drawable/ic_menu_info_details" />
+            android:src="@android:drawable/ic_menu_info_details" />
 
         <!--"帮助"图片按钮-->
         <ImageButton
@@ -46,7 +45,7 @@
             android:layout_marginRight="5dp"
             android:layout_toRightOf="@id/main_title"
             android:background="#00FFFFFF"
-            tools:src="@android:drawable/ic_menu_help" />
+            android:src="@android:drawable/ic_menu_help" />
 
 
     </RelativeLayout>
@@ -102,7 +101,7 @@
 
 
     <!--</RelativeLayout>-->
-    
+
 
     <!--查询布局-->
     <RelativeLayout
@@ -110,8 +109,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/second_rel">
-        
-
 
         <!--"站站查询"图片按钮-->
         <ImageButton
@@ -122,7 +119,7 @@
             android:layout_marginTop="20dp"
             android:background="#00FFFFFF"
             android:scaleType="fitCenter"
-            tools:src="@drawable/zzcx" />
+            android:src="@drawable/zzcx" />
 
         <!--"车次查询"图片按钮-->
         <ImageButton
@@ -135,7 +132,7 @@
             android:layout_toRightOf="@id/bt_zzcx"
             android:background="#00FFFFFF"
             android:scaleType="fitCenter"
-            tools:src="@drawable/cccx" />
+            android:src="@drawable/cccx" />
 
         <!--"车站查询"图片按钮-->
 
@@ -150,7 +147,7 @@
             android:layout_marginBottom="60dp"
             android:background="#00FFFFFF"
             android:scaleType="fitCenter"
-            tools:src="@drawable/czcx" />
+            android:src="@drawable/czcx" />
 
         <!--"站次添加"图片按钮-->
 
@@ -165,7 +162,7 @@
             android:layout_toRightOf="@id/bt_czcx"
             android:background="#00FFFFFF"
             android:scaleType="fitCenter"
-            tools:src="@drawable/zctj" />
+            android:src="@drawable/zctj" />
 
     </RelativeLayout>
     

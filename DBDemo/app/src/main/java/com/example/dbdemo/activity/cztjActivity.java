@@ -24,19 +24,19 @@ public class cztjActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cztj);
 
-        //（4）获取添加按钮的引用
-        //（5）获取返回按钮的引用
-        bt_add=(Button)findViewById(R.id.bt_query);
-        bt_back=(ImageButton)findViewById(R.id.bt_back);
-
-        //（6）为查询按钮添加监听
-        bt_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(zzcxActivity.this,MainActivity.class);
-                startActivity(intent);
-            }
-        });
+//        //（4）获取添加按钮的引用
+//        //（5）获取返回按钮的引用
+//        bt_add=(Button)findViewById(R.id.bt_query);
+//        bt_back=(ImageButton)findViewById(R.id.bt_back);
+//
+//        //（6）为查询按钮添加监听
+//        bt_back.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(zzcxActivity.this,MainActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
         //（7）如果输入框为空，则返回
         //（8）获取车站名字文本框引用
