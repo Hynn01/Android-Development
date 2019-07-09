@@ -9,7 +9,7 @@
     <RelativeLayout
         android:id="@+id/first_rel"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="60dp"
         android:layout_alignParentTop="true">
 
         <!--车次查询-->
@@ -19,9 +19,9 @@
             android:layout_height="60dp"
             android:layout_centerInParent="true"
             android:gravity="center"
+            android:text="关于"
             android:textColor="@android:color/black"
-            android:textSize="30sp"
-            android:text="关于" />
+            android:textSize="30sp" />
 
         <!--"返回"图片按钮-->
         <ImageButton
@@ -31,7 +31,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="15dp"
-            android:layout_marginRight="100dp"
+            android:layout_marginRight="113dp"
             android:layout_marginBottom="15dp"
             android:layout_toLeftOf="@id/about_title"
             android:background="#00FFFFFF"

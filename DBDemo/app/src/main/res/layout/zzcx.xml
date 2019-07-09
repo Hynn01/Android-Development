@@ -165,7 +165,10 @@
         android:scaleType="fitCenter"
         android:text="查询"
         android:textSize="20sp"
+<<<<<<< HEAD
         android:background="#000000"
+=======
+>>>>>>> c80b3e1e6653cce22c9bea2c10e2d8ac518f39d4
         app:srcCompat="@drawable/search" />
 
 </LinearLayout>

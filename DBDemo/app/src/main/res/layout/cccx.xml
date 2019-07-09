@@ -31,7 +31,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="15dp"
-            android:layout_marginRight="70dp"
+            android:layout_marginRight="83dp"
             android:layout_marginBottom="15dp"
             android:layout_toLeftOf="@id/zzcx_title"
             android:background="#00FFFFFF"
@@ -122,15 +122,12 @@
                 android:text="车次:"
                 android:textSize="20sp" />
 
-            <EditText
-                android:id="@+id/blackOutNumber1"
+            <AutoCompleteTextView
+                android:id="@+id/autoinput_cccx_cc"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:background="@null"
-                android:hint="请输入要查询的车次"
-                android:inputType="number"
-                android:paddingLeft="2dp"
-                android:textSize="20sp" />
+                android:hint="请输入车次" />
         </LinearLayout>
 
 
@@ -142,7 +139,10 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:text="查询"
+<<<<<<< HEAD
         android:background="#000000"
+=======
+>>>>>>> c80b3e1e6653cce22c9bea2c10e2d8ac518f39d4
         android:layout_gravity="center"
         android:textSize="20sp" />
 </LinearLayout>
