@@ -26,25 +26,24 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginBottom="15dp"
             android:layout_toLeftOf="@id/main_title"
             android:background="#00FFFFFF"
-            android:src="@android:drawable/ic_menu_info_details" />
+            android:src="@drawable/about" />
 
         <!--"帮助"图片按钮-->
         <ImageButton
             android:id="@+id/bt_help"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_marginTop="5dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
             android:layout_marginRight="5dp"
             android:layout_toRightOf="@id/main_title"
             android:background="#00FFFFFF"
-            android:src="@android:drawable/ic_menu_help" />
+            android:src="@drawable/help" />
 
 
     </RelativeLayout>
