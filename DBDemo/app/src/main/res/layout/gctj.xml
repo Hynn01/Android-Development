@@ -12,7 +12,7 @@
         android:layout_height="50dp"
         android:layout_alignParentTop="true">
 
-        //站站查询
+        <!--//关系添加-->
 
         <TextView
             android:id="@+id/gctj_title"
@@ -24,7 +24,7 @@
             android:textSize="30sp"
             tools:text="车站车次关系添加" />
 
-        //"返回"图片按钮
+        <!--//"返回"图片按钮-->
 
         <ImageButton
             android:id="@+id/back_gctj"
