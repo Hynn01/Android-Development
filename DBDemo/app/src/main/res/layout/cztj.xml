@@ -161,7 +161,6 @@
         android:layout_height="40dp"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:background="#0000000"
         android:scaleType="fitCenter"
         android:text="添加"
         android:textSize="20sp" />
