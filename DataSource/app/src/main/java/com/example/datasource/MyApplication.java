@@ -25,17 +25,21 @@ public class MyApplication extends Application {
         repo = new Repo(this);
         stations = new ArrayList<>();
         buses = new ArrayList<>();
+        G = new Graph();
         System.out.println("myapplication has been called!");
         //初始化 bus stations
         initData();
-
-        //checkData();
+        checkData();
         //建图
-        G = new Graph();
         G.construct(buses);
+
+        //看图
+        System.out.println("看图");
+        G.show();
 
     }
     public void checkData(){
+        System.out.println("检查数据：");
         for(Bus bus : buses){
             System.out.println(bus.toString());
             for(Station station : bus.stations){
@@ -44,16 +48,15 @@ public class MyApplication extends Application {
         }
     }
     public void initData(){
-
         int n = repo.getBusCount();
         //station 数据
         int m = repo.getStationCount();
+        G.setV(m);
         //看一下记录数是否正确
         System.out.println("StationCount , BusCount = " + m + " "+ n);
         for(int i=1;i<=n;i++){
             buses.add(repo.getBusById(i));
         }
-
         for(int i=1;i<=m;i++){
             stations.add(repo.getStationById(i));
         }

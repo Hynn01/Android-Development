@@ -95,7 +95,8 @@ public class MainActivity extends AppCompatActivity {
 //        Bus b = new Bus();
 //        b = ((MyApplication)this.getApplication()).getDao().getBusById(1);
 //        System.out.println(b);
-        ((MyApplication)this.getApplication()).checkData();
-        ((MyApplication)this.getApplication()).findPathMiddle(1 , 9);
+       // ((MyApplication)this.getApplication()).checkData();
+
+        System.out.println( ((MyApplication) this.getApplication()).findPathMiddle(1,9));
     }
 }

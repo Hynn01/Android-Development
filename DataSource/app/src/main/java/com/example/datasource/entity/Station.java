@@ -29,6 +29,6 @@ public class Station {
 //    }
 
     public String toString(){
-        return this.station_ID + this.name ;
+        return this.station_ID + " " + this.name ;
     }
 }

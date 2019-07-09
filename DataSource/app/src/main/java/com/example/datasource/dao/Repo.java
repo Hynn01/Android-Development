@@ -209,8 +209,12 @@ public class Repo {
 
 
     public Bus getBusById(int Id){
+        //System.out.println("getBusById been called~!");
         Bus bus = getBusById1(Id);
         bus.stations = getStationArrayList(Id);
+        //for (Station a:bus.stations) {
+        //    System.out.println("station:"+a.station_ID+a.name);
+        //}
         return bus;
     }
 
@@ -237,7 +241,7 @@ public class Repo {
             }while (cursor.moveToNext());
         }
         cursor.close();
-        System.out.println(bus.bus_ID+" "+bus.name);
+        //System.out.println(bus.bus_ID+" "+bus.name);
         return bus;
 
     }
@@ -308,7 +312,7 @@ public class Repo {
                 stationIdList.add(cursor.getInt(cursor.getColumnIndex(Trancepos.KEY_station)));
             }while (cursor.moveToNext());
         }
-        System.out.println(stationIdList);
+        //System.out.println(stationIdList);
         cursor.close();
 
         //将所有站实例化
@@ -316,6 +320,8 @@ public class Repo {
         Iterator iterator = stationIdList.iterator();
         while(iterator.hasNext()){
             Station station = getStationById((int)iterator.next());
+            stationList.add(station);
+            //System.out.println("实例化stationList"+station);
         }
         return stationList;
     }
