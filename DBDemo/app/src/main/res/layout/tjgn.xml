@@ -16,7 +16,7 @@
         //站站查询
 
         <TextView
-            android:id="@+id/zzcx_title"
+            android:id="@+id/tjgn_title"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_centerInParent="true"
@@ -32,7 +32,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="83dp"
-            android:layout_toLeftOf="@id/zzcx_title" />
+            android:layout_toLeftOf="@id/tjgn_title" />
 
 
     </RelativeLayout>
@@ -111,7 +111,7 @@
                 android:text="车站关系添加"
                 />
 
-        
+
 
 
     </LinearLayout>
