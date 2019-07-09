@@ -139,10 +139,6 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:text="查询"
-<<<<<<< HEAD
-        android:background="#000000"
-=======
->>>>>>> c80b3e1e6653cce22c9bea2c10e2d8ac518f39d4
         android:layout_gravity="center"
         android:textSize="20sp" />
 </LinearLayout>
