@@ -8,7 +8,7 @@
         android:layout_height="fill_parent"
         android:layout_gravity="center_horizontal"
 
-        android:background="@drawable/splash_image1" >
+        android:background="@drawable/splash_image2" >
     </ImageView>
 
 </LinearLayout>

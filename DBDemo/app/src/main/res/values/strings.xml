@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">DBDemo</string>
+    <string name="main_title">北京公交查询助手</string>
 </resources>
