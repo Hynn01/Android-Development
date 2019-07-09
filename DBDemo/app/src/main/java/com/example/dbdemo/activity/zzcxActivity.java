@@ -35,7 +35,7 @@ public class zzcxActivity extends Activity {
         bt_query=(Button)findViewById(R.id.bt_query);
 
         //（5）返回按钮ID
-        bt_back=(Button)findViewById(R.id.bt_back);
+        bt_back=(ImageButton)findViewById(R.id.bt_back);
 
         //（10）为查询按钮添加监听
         bt_query.setOnClickListener(new View.OnClickListener() {
@@ -84,7 +84,6 @@ public class zzcxActivity extends Activity {
             Intent intent = new Intent(zzcxActivity.this,zzcxjgActivity.class);
             startActivity(intent);
         }
-
 
         //（26）为返回按钮添加监听
         //（27）返回主菜单界面
