@@ -1,6 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:id="@+id/first_rel"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true">
+
+
+
+        <TextView
+            android:id="@+id/help_title"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="30sp"
+            tools:text="帮助" />
+
+        <!--//"返回"图片按钮-->
+
+        <ImageButton
+            android:id="@+id/back_help"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="40dp"
+            android:layout_toLeftOf="@id/help_title"
+            android:background="#00FFFFFF"
+            android:src="@android:drawable/ic_menu_revert" />
+
+
+    </RelativeLayout>
+    <!--广告轮播-->
+    <RelativeLayout
+        android:id="@+id/second_rel"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_below="@id/first_rel">
+
+        <com.youth.banner.Banner
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/banner"
+            android:layout_width="match_parent"
+            android:layout_height="250dp" />
+
+    </RelativeLayout>
+    <!--<RelativeLayout-->
+    <!--android:id="@+id/second_rel"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="250dp"-->
+    <!--android:layout_below="@id/first_rel">-->
+
+    <!--<android.support.v4.view.ViewPager-->
+    <!--android:id="@+id/viewPager"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent" />-->
+
+    <!--<LinearLayout android:id="@+id/dotLayout"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--android:padding="8dp"-->
+    <!--android:gravity="right"-->
+    <!--android:orientation="horizontal">    //默认情况下面的点-->
+
+    <!--<View-->
+    <!--android:id="@+id/v_dot1"-->
+    <!--android:layout_width="8dp"-->
+    <!--android:layout_height="8dp"-->
+    <!--android:background="@drawable/dot_focus" />-->
+
+    <!--<View-->
+    <!--android:id="@+id/v_dot2"-->
+    <!--android:layout_width="8dp"-->
+    <!--android:layout_height="8dp"-->
+    <!--android:layout_marginLeft="5dp"-->
+    <!--android:background="@drawable/dot_blur" />-->
+
+    <!--</LinearLayout>-->
+
+
+    <!--</RelativeLayout>-->
+
+
+    <LinearLayout
+        android:id="@+id/third_rel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/second_rel"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="站站查询功能介绍"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="车次查询功能介绍"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="车站功能介绍"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="站次添加功能介绍"
+            android:textSize="20sp" />
+    </LinearLayout>
 
 </LinearLayout>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -10,7 +9,7 @@
     <RelativeLayout
         android:id="@+id/first_rel"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:layout_alignParentTop="true">
 
         <!--站站查询-->
@@ -20,8 +19,9 @@
             android:layout_height="50dp"
             android:layout_centerInParent="true"
             android:gravity="center"
-            android:textSize="18sp"
-            android:text="站站查询" />
+            android:text="站站查询"
+            android:textColor="#000000"
+            android:textSize="30sp" />
 
         <!--"返回"图片按钮-->
         <ImageButton
@@ -31,7 +31,9 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="83dp"
-            android:layout_toLeftOf="@id/zzcx_title" />
+            android:layout_toLeftOf="@id/zzcx_title"
+            android:background="#00FFFFFF"
+            android:src="@android:drawable/ic_menu_revert" />
 
     </RelativeLayout>
 
@@ -157,11 +159,13 @@
     <Button
         android:id="@+id/searchButton"
         android:layout_width="wrap_content"
-        android:layout_height="60dp"
+        android:layout_height="40dp"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:scaleType="fitCenter"
         android:text="查询"
+        android:textSize="20sp"
+        android:background="0000000"
         app:srcCompat="@drawable/search" />
 
 </LinearLayout>
