@@ -10,8 +10,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dbdemo.R;
+import com.youth.banner.Banner;
 
 import java.util.ArrayList;
+import java.util.List;
 
 //车次查询
 public class cccxActivity extends Activity {
@@ -28,6 +30,16 @@ public class cccxActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cccx);
+
+        Banner banner = (Banner) findViewById(R.id.banner_zzcx);
+        //本地图片数据（资源文件）
+        List<Integer> list=new ArrayList<>();
+        list.add(R.mipmap.ad1);
+        list.add(R.mipmap.ad2);
+        list.add(R.mipmap.ad3);
+        banner.setImages(list)
+                .setImageLoader(new GlideImageLoader())
+                .start();
 
 //        //（4）查询按钮引用
 //        bt_query=(Button)findViewById(R.id.bt_query);
