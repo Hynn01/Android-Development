@@ -6,8 +6,12 @@ import android.app.Activity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import com.youth.banner.Banner;
 
 import com.example.dbdemo.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends Activity {
 
@@ -26,6 +30,22 @@ public class MainActivity extends Activity {
         //（3）标识当前界面为菜单界面
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+
+        Banner banner = (Banner) findViewById(R.id.banner);
+        //本地图片数据（资源文件）
+        List<Integer> list=new ArrayList<>();
+        list.add(R.mipmap.ad1);
+        list.add(R.mipmap.ad2);
+        list.add(R.mipmap.ad3);
+        banner.setImages(list)
+                .setImageLoader(new GlideImageLoader())
+                .start();
+//        //设置图片加载器
+//        banner.setImageLoader(new GlideImageLoader());
+//        //设置图片集合
+//        banner.setImages(images);
+//        //banner设置方法全部调用完毕时最后调用
+//        banner.start();
 
         //（4）获取菜单界面下的各个按钮的引用（包括，关于help，站站查询，车次查询，车站查询，添加功能的按钮）
         bt_about=(ImageButton)findViewById(R.id.bt_about);

@@ -3,144 +3,165 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <RelativeLayout
         android:id="@+id/first_rel"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="100dp"
         android:layout_alignParentTop="true">
 
-        //主界面标题-北京公交查询图片
+        <!--主界面标题-北京公交查询图片-->
         <TextView
             android:id="@+id/main_title"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="100dp"
             android:layout_centerInParent="true"
-            android:text="@string/main_title"
             android:gravity="center"
-            android:textSize="18sp"/>
+            android:text="@string/main_title"
+            android:textColor="#000000"
+            android:textSize="30sp" />
 
-        //"关于"图片按钮
+        <!--"关于"图片按钮-->
         <ImageButton
             android:id="@+id/bt_about"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="83dp"
-            android:layout_toLeftOf="@id/main_title" />
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="15dp"
+            android:layout_toLeftOf="@id/main_title"
+            android:background="#00FFFFFF"
+            android:src="@android:drawable/ic_menu_info_details" />
 
-        //"帮助"图片按钮
+        <!--"帮助"图片按钮-->
         <ImageButton
             android:id="@+id/bt_help"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginLeft="83dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="5dp"
-            android:layout_toRightOf="@id/main_title" />
+            android:layout_toRightOf="@id/main_title"
+            android:background="#00FFFFFF"
+            android:src="@android:drawable/ic_menu_help" />
 
 
     </RelativeLayout>
 
-    //广告轮播
+    <!--广告轮播-->
     <RelativeLayout
-        android:id="@+id/second_rel"
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_below="@id/first_rel">
+    android:id="@+id/second_rel"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:layout_below="@id/first_rel">
 
-        <android.support.v4.view.ViewPager
-            android:id="@+id/viewPager"
+        <com.youth.banner.Banner
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/banner"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <LinearLayout android:id="@+id/dotLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:padding="8dp"
-            android:gravity="right"
-            android:orientation="horizontal">    //默认情况下面的点
-
-            <View
-                android:id="@+id/v_dot1"
-                android:layout_width="8dp"
-                android:layout_height="8dp"
-                android:background="@drawable/dot_focus" />
-
-            <View
-                android:id="@+id/v_dot2"
-                android:layout_width="8dp"
-                android:layout_height="8dp"
-                android:layout_marginLeft="5dp"
-                android:background="@drawable/dot_blur" />
-
-        </LinearLayout>
-
+            android:layout_height="250dp" />
 
     </RelativeLayout>
-    
 
-    //查询布局
+    <!--<RelativeLayout-->
+        <!--android:id="@+id/second_rel"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="250dp"-->
+        <!--android:layout_below="@id/first_rel">-->
+
+        <!--<android.support.v4.view.ViewPager-->
+            <!--android:id="@+id/viewPager"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent" />-->
+
+        <!--<LinearLayout android:id="@+id/dotLayout"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:padding="8dp"-->
+            <!--android:gravity="right"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<View-->
+                <!--android:id="@+id/v_dot1"-->
+                <!--android:layout_width="8dp"-->
+                <!--android:layout_height="8dp"-->
+                <!--android:background="@drawable/dot_focus" />-->
+
+            <!--<View-->
+                <!--android:id="@+id/v_dot2"-->
+                <!--android:layout_width="8dp"-->
+                <!--android:layout_height="8dp"-->
+                <!--android:layout_marginLeft="5dp"-->
+                <!--android:background="@drawable/dot_blur" />-->
+
+        <!--</LinearLayout>-->
+
+
+    <!--</RelativeLayout>-->
+
+
+    <!--查询布局-->
     <RelativeLayout
         android:id="@+id/third_rel"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/second_rel">
-        
 
-
-        //"站站查询"图片按钮
+        <!--"站站查询"图片按钮-->
         <ImageButton
             android:id="@+id/bt_zzcx"
-            android:layout_width="165dp"
-            android:layout_height="165dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
+            android:src="@drawable/zzcx" />
 
-             />
-
-        //"车次查询"图片按钮
-
+        <!--"车次查询"图片按钮-->
         <ImageButton
             android:id="@+id/bt_cccx"
-            android:layout_width="165dp"
-            android:layout_height="165dp"
-            android:layout_marginLeft="40dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="70dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
             android:layout_toRightOf="@id/bt_zzcx"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
+            android:src="@drawable/cccx" />
 
-            />
-
-        //"车站查询"图片按钮
+        <!--"车站查询"图片按钮-->
 
         <ImageButton
             android:id="@+id/bt_czcx"
-            android:layout_width="165dp"
-            android:layout_height="165dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentBottom="true"
             android:layout_marginLeft="20dp"
-            android:layout_marginBottom="60dp" />
+            android:layout_marginBottom="30dp"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
+            android:src="@drawable/czcx" />
 
-        //"站次添加"图片按钮
+        <!--"站次添加"图片按钮-->
 
         <ImageButton
             android:id="@+id/bt_tjgn"
-            android:layout_width="165dp"
-            android:layout_height="165dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:layout_alignParentBottom="true"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="70dp"
             android:layout_marginRight="20dp"
-            android:layout_marginBottom="60dp"
-            android:layout_toRightOf="@id/bt_czcx" />
-
-
-
-
+            android:layout_marginBottom="30dp"
+            android:layout_toRightOf="@id/bt_czcx"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
+            android:src="@drawable/zctj" />
 
     </RelativeLayout>
     

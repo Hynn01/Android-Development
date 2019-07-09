@@ -29,48 +29,48 @@ public class cccxActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cccx);
 
-        //（4）查询按钮引用
-        bt_query=(Button)findViewById(R.id.bt_query);
-
-        //（5）返回按钮引用
-        bt_back=(ImageButton)findViewById(R.id.bt_back);
-
-        //（6）为查询按钮添加监听器
-        //（7）在监听函数中拿到车次输入框的引用
-        //（8）从引用中由文本框获取文本
-        //（9）根据输入的信息查询结果
-        tv_cc=(ImageButton)findViewById(R.id.tv_cc);
-        String input=tv_cc.getText().toString();
-        ArrayList<String> result=null;
-        bt_query.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //todo:查询
-                //result=query(input)
-            }
-        });
-
-        //（10）如果查询结果为空，则应有无输出信息提示
-        //（11）这时发toast信息提醒用户
-        //（12）否则查询结果不为空
-        //（13）切换到查询结果界面，由listview界面输出结果
-        if(result==null){
-            Toast toast = Toast.makeText(zzcxActivity.this, "没有查询结果", Toast.LENGTH_SHORT);
-            toast.show();
-        }else{
-            Intent intent = new Intent(zzcxActivity.this,zzcxjgActivity.class);
-            startActivity(intent);
-        }
-
-        //（14）为返回按钮添加监听
-        //（15）在当按下返回按钮时，调用返回到主菜单界面函数返回
-        bt_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(zzcxActivity.this,MainActivity.class);
-                startActivity(intent);
-            }
-        });
+//        //（4）查询按钮引用
+//        bt_query=(Button)findViewById(R.id.bt_query);
+//
+//        //（5）返回按钮引用
+//        bt_back=(ImageButton)findViewById(R.id.bt_back);
+//
+//        //（6）为查询按钮添加监听器
+//        //（7）在监听函数中拿到车次输入框的引用
+//        //（8）从引用中由文本框获取文本
+//        //（9）根据输入的信息查询结果
+//        tv_cc=(ImageButton)findViewById(R.id.tv_cc);
+//        String input=tv_cc.getText().toString();
+//        ArrayList<String> result=null;
+//        bt_query.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //todo:查询
+//                //result=query(input)
+//            }
+//        });
+//
+//        //（10）如果查询结果为空，则应有无输出信息提示
+//        //（11）这时发toast信息提醒用户
+//        //（12）否则查询结果不为空
+//        //（13）切换到查询结果界面，由listview界面输出结果
+//        if(result==null){
+//            Toast toast = Toast.makeText(zzcxActivity.this, "没有查询结果", Toast.LENGTH_SHORT);
+//            toast.show();
+//        }else{
+//            Intent intent = new Intent(zzcxActivity.this,zzcxjgActivity.class);
+//            startActivity(intent);
+//        }
+//
+//        //（14）为返回按钮添加监听
+//        //（15）在当按下返回按钮时，调用返回到主菜单界面函数返回
+//        bt_back.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(zzcxActivity.this,MainActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
     }
 
