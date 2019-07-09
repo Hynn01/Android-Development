@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -7,38 +8,45 @@
     <RelativeLayout
         android:id="@+id/first_rel"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="100dp"
         android:layout_alignParentTop="true">
 
         <!--主界面标题-北京公交查询图片-->
         <TextView
             android:id="@+id/main_title"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="100dp"
             android:layout_centerInParent="true"
-            android:text="@string/main_title"
             android:gravity="center"
-            android:textSize="18sp"/>
+            android:text="@string/main_title"
+            android:textColor="#000000"
+            android:textSize="30sp" />
 
         <!--"关于"图片按钮-->
         <ImageButton
             android:id="@+id/bt_about"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="83dp"
-            android:layout_toLeftOf="@id/main_title" />
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="15dp"
+            android:layout_toLeftOf="@id/main_title"
+            android:background="#00FFFFFF"
+            tools:src="@android:drawable/ic_menu_info_details" />
 
         <!--"帮助"图片按钮-->
         <ImageButton
             android:id="@+id/bt_help"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginLeft="83dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="5dp"
-            android:layout_toRightOf="@id/main_title" />
+            android:layout_toRightOf="@id/main_title"
+            android:background="#00FFFFFF"
+            tools:src="@android:drawable/ic_menu_help" />
 
 
     </RelativeLayout>
@@ -112,8 +120,9 @@
             android:layout_height="165dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-
-             />
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
+            tools:src="@drawable/zzcx" />
 
         <!--"车次查询"图片按钮-->
         <ImageButton
@@ -124,7 +133,9 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
             android:layout_toRightOf="@id/bt_zzcx"
-            />
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
+            tools:src="@drawable/cccx" />
 
         <!--"车站查询"图片按钮-->
 
@@ -136,7 +147,10 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentBottom="true"
             android:layout_marginLeft="20dp"
-            android:layout_marginBottom="60dp" />
+            android:layout_marginBottom="60dp"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
+            tools:src="@drawable/czcx" />
 
         <!--"站次添加"图片按钮-->
 
@@ -148,7 +162,10 @@
             android:layout_marginLeft="40dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="60dp"
-            android:layout_toRightOf="@id/bt_czcx" />
+            android:layout_toRightOf="@id/bt_czcx"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
+            tools:src="@drawable/zctj" />
 
     </RelativeLayout>
     
