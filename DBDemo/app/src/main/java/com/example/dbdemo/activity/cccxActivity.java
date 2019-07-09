@@ -41,12 +41,12 @@ public class cccxActivity extends Activity {
                 .setImageLoader(new GlideImageLoader())
                 .start();
 
-//        //（4）查询按钮引用
-//        bt_query=(Button)findViewById(R.id.bt_query);
-//
-//        //（5）返回按钮引用
-//        bt_back=(ImageButton)findViewById(R.id.bt_back);
-//
+        //（4）查询按钮引用
+        bt_query=(Button)findViewById(R.id.searchButton_cccx);
+
+        //（5）返回按钮引用
+        bt_back=(ImageButton)findViewById(R.id.back_cccx);
+
 //        //（6）为查询按钮添加监听器
 //        //（7）在监听函数中拿到车次输入框的引用
 //        //（8）从引用中由文本框获取文本
@@ -74,15 +74,15 @@ public class cccxActivity extends Activity {
 //            startActivity(intent);
 //        }
 //
-//        //（14）为返回按钮添加监听
-//        //（15）在当按下返回按钮时，调用返回到主菜单界面函数返回
-//        bt_back.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(zzcxActivity.this,MainActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+        //（14）为返回按钮添加监听
+        //（15）在当按下返回按钮时，调用返回到主菜单界面函数返回
+        bt_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(cccxActivity.this,MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

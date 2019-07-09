@@ -9,7 +9,10 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.dbdemo.R;
+import com.youth.banner.Banner;
+
 import java.util.ArrayList;
+import java.util.List;
 
 //去车站所有车次查询
 public class czcccxActivity extends Activity {
@@ -26,12 +29,22 @@ public class czcccxActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.cccx);
+        setContentView(R.layout.czcccx);
 
-//        //（4）获取杳询按钮的引用
-//        //（5）获取返回按钮的引用
-//        bt_query=(Button)findViewById(R.id.bt_query);
-//        bt_back=(ImageButton)findViewById(R.id.bt_back);
+        Banner banner = (Banner) findViewById(R.id.banner_zzcx);
+        //本地图片数据（资源文件）
+        List<Integer> list=new ArrayList<>();
+        list.add(R.mipmap.ad1);
+        list.add(R.mipmap.ad2);
+        list.add(R.mipmap.ad3);
+        banner.setImages(list)
+                .setImageLoader(new GlideImageLoader())
+                .start();
+
+        //（4）获取杳询按钮的引用
+        //（5）获取返回按钮的引用
+        bt_query=(Button)findViewById(R.id.searchButton_czcx);
+        bt_back=(ImageButton)findViewById(R.id.back_czcx);
 //
 //        //（6）为车站输入文本框添加适配器
 //        //（7）为查询按钮添加监听
@@ -58,16 +71,16 @@ public class czcccxActivity extends Activity {
 //            Intent intent = new Intent(czcccxActivity.this,zzcxjgActivity.class);
 //            startActivity(intent);
 //        }
-//
-//        //（13）为返回按钮添加监听
-//        //（14）在监听函数中返回主菜单
-//        bt_back.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(czcccxActivity.this,MainActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+
+        //（13）为返回按钮添加监听
+        //（14）在监听函数中返回主菜单
+        bt_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(czcccxActivity.this,MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

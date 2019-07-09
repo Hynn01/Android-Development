@@ -135,7 +135,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/searchButton"
+        android:id="@+id/searchButton_cccx"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"
