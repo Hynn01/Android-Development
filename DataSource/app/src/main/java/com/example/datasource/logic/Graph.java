@@ -13,7 +13,7 @@ public class Graph {
     private int cnt;//边的个数
     private Node[] edges;//图的边
     private int V = 1;//顶点个数
-    private ArrayList< ArrayList<Integer> > paths; //边的结果路径 重要
+    private ArrayList< ArrayList<Integer> > edgePaths; //边的结果路径 重要
     private ArrayList< ArrayList<Integer> > nodePaths;//点的结果路径
     private ArrayList<Integer> nodePath;//当前结点栈
     private ArrayList<Integer> edgePath;//当前边栈
@@ -27,7 +27,7 @@ public class Graph {
         nodePath = new ArrayList<Integer>();
         edgePath = new ArrayList<Integer>();
 
-        paths = new ArrayList< ArrayList<Integer> >();
+        edgePaths = new ArrayList< ArrayList<Integer> >();
         nodePaths = new ArrayList< ArrayList<Integer> >();
 
         vis = new boolean[SIZE];
@@ -51,7 +51,6 @@ public class Graph {
             }
         }
     }
-
     //加边
    public void addEdge(int u, int v , int w){
         edges[cnt].w = w;
@@ -90,7 +89,6 @@ public class Graph {
             constructOneLine(bus);
         }
     }
-
     //回溯法计算两点间所有路径
     public void dfs(int cur, int dst){
         nodePath.add(cur);//结点路径加入当前结点
@@ -100,10 +98,15 @@ public class Graph {
             System.out.println(nodePath);
             System.out.println("找到一条边路径！");
             System.out.println(edgePath);
+            ArrayList<Integer> newNodePath = new ArrayList<>();
+            ArrayList<Integer> newEdgePath = new ArrayList<>();
+            newEdgePath.addAll(edgePath);
+            newNodePath.addAll(nodePath);
+            nodePaths.add(newNodePath); //点结果路径
+            edgePaths.add(newEdgePath); //边结果路径
+            System.out.println("查看结果点路径集合" + nodePaths);
+            System.out.println("查看结果边路径集合" + edgePaths);
 
-            nodePaths.add(nodePath); //点结果路径
-            paths.add(edgePath); //边结果路径
-            System.out.println("查看结果边路径集合" + paths);
         }
         else{ //如果不是终点 就要进一步往下搜索
             for(int i=head[cur]; i!=0; i=edges[i].next){
@@ -117,21 +120,21 @@ public class Graph {
         }
         nodePath.remove(nodePath.size()-1); // 返回时 弹出路径栈顶结点
         vis[cur] = false; //这个点已经退栈，标记为未访问过
-    }
 
+    }
 
     //去除傻逼路径
     public void dealStupidPaths(){
-        for(int i=0; i<paths.size(); i++){//遍历所有路径
+        for(int i = 0; i< edgePaths.size(); i++){//遍历所有路径
             // 1 2 2 2 3 1 4
             //1 2 2 3 4 5
             boolean[] visit = new boolean[SIZE];
-            ArrayList<Integer> cur = paths.get(i);//取出当前路径
+            ArrayList<Integer> cur = edgePaths.get(i);//取出当前路径
             int pre = -1;//记前一个边 为-1
             for(int x : cur){  //遍历所有的边
                 if(x != pre){ //要换乘了，看一下将要换乘的线路是不是之前下来的
                     if(visit[x]){ //如果是之前下来的，说明这是傻逼路径
-                        paths.remove(i);
+                        edgePaths.remove(i);
                         break;
                     }
                     visit[x] = true;
@@ -144,14 +147,14 @@ public class Graph {
     //中转站查询 返回的是Path的ArrayList
     //每一个Path都是一条路径 里面有起始栈  以及有序中转站集合
     public ArrayList<Path> findPathMiddle(ArrayList<Station>stations , ArrayList<Bus>buses , int u, int v){
-        //clear();//清空结果集合
+        clear();//清空结果集合
 
         dfs(u , v); //计算所有路径 填充paths 边结果路径
 
         System.out.println("点路径的条数 ： " + nodePaths.size());
-        System.out.println("边路径的条数" + paths.size());
+        System.out.println("边路径的条数" + edgePaths.size());
         System.out.println("点路径集合 ： " + nodePaths);
-        System.out.println("边路径集合 ： " + paths);
+        System.out.println("边路径集合 ： " + edgePaths);
         Station start = stations.get(u-1);
         Station end = stations.get(v-1);
         System.out.println("start = " + start.station_ID + " end = " + end.station_ID);
@@ -161,8 +164,8 @@ public class Graph {
         //2. 添加换乘信息
         //1111122223333
         ArrayList<Path> result = new ArrayList<Path>();
-        if(paths == null)  return  null;
-        for(ArrayList<Integer> edgePath : paths){
+        if(edgePaths == null)  return  null;
+        for(ArrayList<Integer> edgePath : edgePaths){
             System.out.println("edgePath = " + edgePath);
             Path path = new Path(start , end );
             int pre = edgePath.get(0);//第一条边
