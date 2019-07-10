@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.example.dbdemo.MyApplication;
 import com.example.dbdemo.R;
 import com.youth.banner.Banner;
 
@@ -24,8 +25,12 @@ public class cztjActivity extends Activity {
     private EditText et_station;
     private  EditText et_abbreviation;
 
+    private MyApplication app;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        app=(MyApplication) this.getApplication();
 
         //（1）车站添加模块goTocztjView()
         //（2）切换到车站添加界面
@@ -58,30 +63,32 @@ public class cztjActivity extends Activity {
             @Override
             public void onClick(View view) {
 
-//                //（10）取出名字文本
-//                //（11）简称文本
-//                String station=et_station.getText().toString();
-//                String station_sim=et_abbreviation.getText().toString();
-//
-//                //（7）如果输入框为空，则返回
-//                //（12）查看简称文本是否只有字母
-//                //（13）如有问题弹出对话框提醒用户
-//                //字母检查这块已经在输入框中做了限制
-//                if(station==null || station_sim==null){
-//
-//                }else{
-//                    //（14）准备数据库查询该名称是否已经存在
-//                    //（15）执行数据库查询
-//                    //todo:result=quiry(station)
-//                    //（16）如果不为空，说明存在此车站
-//                    //（17）发Toast消息提醒用户
-//                    if(result!=null){
-//
-//                    }else{
-//                        //（18）插入数据
-//                        //（19）如果插入失败，提醒用户
-//                        //（20）否则为成功插入数据
-//                        insert_flag=insert();
+                //（10）取出名字文本
+                //（11）简称文本
+                String station_name=et_station.getText().toString();
+                String station_sim=et_abbreviation.getText().toString();
+
+                //（7）如果输入框为空，则返回
+                //（12）查看简称文本是否只有字母
+                //（13）如有问题弹出对话框提醒用户
+                //字母检查这块已经在输入框中做了限制
+                if(station_name==null || station_sim==null){
+
+                }else{
+                    //（14）准备数据库查询该名称是否已经存在
+                    //（15）执行数据库查询
+                    int station_id=app.getDao().getStationIdByName(station_name);
+                    //（16）如果不为0，说明存在此车站
+                    //（17）发Toast消息提醒用户
+                    if(station_id!=0){
+                        Toast toast = Toast.makeText(cztjActivity.this,"存在此车站，请重新输入",Toast.LENGTH_SHORT);
+                        toast.show();
+                    }else{
+                        //（18）插入数据
+                        //（19）如果插入失败，提醒用户
+                        //（20）否则为成功插入数据
+                        Station
+                        int insert_id=app.getDao().insertStation(station_name);
 //                        if(insert_flag==false){
 //                            Toast toast = Toast.makeText(cztjActivity.this,"插入失败",Toast.LENGTH_SHORT);
 //                            toast.show();
@@ -91,10 +98,10 @@ public class cztjActivity extends Activity {
 //                                toast.show();
 //                            }
 //                        }
-//
-//                    }
-//
-//                }
+
+                    }
+
+                }
             }
         });
 
