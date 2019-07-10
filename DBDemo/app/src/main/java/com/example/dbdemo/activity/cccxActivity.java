@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.example.dbdemo.MyApplication;
 import com.example.dbdemo.R;
 import com.example.dbdemo.dao.Repo;
+import com.example.dbdemo.entity.Station;
 import com.youth.banner.Banner;
 
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ public class cccxActivity extends Activity {
     private ImageButton bt_back;
     private TextView tv_cc;//车次
     private MyApplication application;//数据库操作
-    int result;//返回结果
+    ArrayList<Station> result;//返回结果
     String input;//输入
 
     //（1）车次查询模块goTocccxView()
@@ -58,28 +59,29 @@ public class cccxActivity extends Activity {
 //        //（9）根据输入的信息查询结果
         tv_cc=(TextView) findViewById(R.id.autoinput_cccx_cc);
         input=tv_cc.getText().toString();
-        result=0;
+        result=null;
         application= (MyApplication)this.getApplication();
         bt_query.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //todo:查询
-                result=application.getDao().getBusIdByName(input);
+                result=application.getDao().getStationArrayList(application.getDao().getBusIdByName(input));
+                //        //（10）如果查询结果为空，则应有无输出信息提示
+                //        //（11）这时发toast信息提醒用户
+                //        //（12）否则查询结果不为空
+                //        //（13）切换到查询结果界面，由listview界面输出结果
+                if(result==null){
+                    Toast toast = Toast.makeText(cccxActivity.this, "没有查询结果", Toast.LENGTH_SHORT);
+                    toast.show();
+                }else{
+                    Intent intent = new Intent(cccxActivity.this,zzcxjgActivity.class);
+                    startActivity(intent);
+                }
+//
             }
         });
 
-//        //（10）如果查询结果为空，则应有无输出信息提示
-//        //（11）这时发toast信息提醒用户
-//        //（12）否则查询结果不为空
-//        //（13）切换到查询结果界面，由listview界面输出结果
-        if(result==0){
-            Toast toast = Toast.makeText(cccxActivity.this, "没有查询结果", Toast.LENGTH_SHORT);
-            toast.show();
-        }else{
-            Intent intent = new Intent(cccxActivity.this,zzcxjgActivity.class);
-            startActivity(intent);
-        }
-//
+
         //（14）为返回按钮添加监听
         //（15）在当按下返回按钮时，调用返回到主菜单界面函数返回
         bt_back.setOnClickListener(new View.OnClickListener() {
