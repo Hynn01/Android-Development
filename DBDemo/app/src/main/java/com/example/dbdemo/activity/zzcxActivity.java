@@ -18,6 +18,7 @@ import com.youth.banner.Banner;
 import java.util.ArrayList;
 import java.util.List;
 
+
 //站站查询
 public class zzcxActivity extends Activity {
 
@@ -64,10 +65,21 @@ public class zzcxActivity extends Activity {
 //        // //（7）为中转站文本框添加适配
 //        //（8）为终点站文本框添加适配器
 //        // //（9）中转站CheckBox引用
-        String[] str={};
-        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,str);
-        tv_start.setAdapter(adapter);
-        tv_end.setAdapter(adapter);
+        String[] str={};//获取数据库中所有的车站
+        str=(String[])application.getDao().getStationList().toArray(new String[0]);
+
+        //获取输入框中的字符
+        String start_child=tv_start.getText().toString();
+        String end_child=tv_end.getText().toString();
+
+        //获取输入字符与数据库匹配的车站
+        String[] start_match=application.Match(str,start_child);
+        String[] end_match=application.Match(str,end_child);
+
+        ArrayAdapter<String> start_adapter=new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,start_match);
+        ArrayAdapter<String> end_adapter=new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,end_match);
+        tv_start.setAdapter(start_adapter);
+        tv_end.setAdapter(end_adapter);
 //
 //        //（14）由引用获取初始站文本
 //        //（15）由引用获取终点站文本
@@ -115,4 +127,7 @@ public class zzcxActivity extends Activity {
     public ArrayList<String> getResult(){
         return result;
     }
+
+
+
 }

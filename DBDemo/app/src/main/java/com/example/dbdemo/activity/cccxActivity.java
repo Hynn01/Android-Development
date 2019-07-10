@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -23,8 +25,9 @@ public class cccxActivity extends Activity {
 
     private Button bt_query;
     private ImageButton bt_back;
-    private TextView tv_cc;//车次
+    //private TextView tv_cc;//车次
     private MyApplication application;//数据库操作
+    private AutoCompleteTextView autoinput_cccx_cc;
     ArrayList<Station> result;//返回结果
     String input;//输入
 
@@ -57,10 +60,19 @@ public class cccxActivity extends Activity {
 //        //（7）在监听函数中拿到车次输入框的引用
 //        //（8）从引用中由文本框获取文本
 //        //（9）根据输入的信息查询结果
-        tv_cc=(TextView) findViewById(R.id.autoinput_cccx_cc);
-        input=tv_cc.getText().toString();
+//        tv_cc=(TextView) findViewById(R.id.autoinput_cccx_cc);
+//        input=tv_cc.getText().toString();
         result=null;
         application= (MyApplication)this.getApplication();
+        String[] str={};//获取数据库中所有的车次
+        str=(String[])application.getDao().getBusList().toArray(new String[0]);
+
+        //获取输入框中的字符
+        String cc_child=autoinput_cccx_cc.getText().toString();
+        String[] cc_match=application.Match(str,cc_child);
+        ArrayAdapter<String> cc_adapter=new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,cc_match);
+        autoinput_cccx_cc.setAdapter(cc_adapter);
+
         bt_query.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
