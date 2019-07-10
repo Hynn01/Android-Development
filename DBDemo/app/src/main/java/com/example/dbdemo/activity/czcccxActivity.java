@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.dbdemo.MyApplication;
 import com.example.dbdemo.R;
 import com.example.dbdemo.entity.Bus;
 import com.example.dbdemo.entity.Station;
@@ -24,7 +26,7 @@ public class czcccxActivity extends Activity {
     private Button bt_query;
     private ImageButton bt_back;
     private TextView tv_cz;//车次
-    private Repo repo;//数据库操作
+    private MyApplication application;//数据库操作
     ArrayList<Bus> result;//返回结果
     String input;//输入
     //（1）车站查询，goToczcccxView()
@@ -36,7 +38,7 @@ public class czcccxActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.czcccx);
         //初始化数据库
-        repo= new Repo(this);
+        application= (MyApplication)this.getApplication();
 
         Banner banner = (Banner) findViewById(R.id.banner_zzcx);
         //本地图片数据（资源文件）
@@ -64,8 +66,8 @@ public class czcccxActivity extends Activity {
             @Override
             public void onClick(View view) {
                 //todo:查询
-                int back=repo.getStationIdByName(input);
-                result=repo.getBusArrayList(back);
+                int back=application.getDao().getStationIdByName(input);
+                result=application.getDao().getBusArrayList(back);
 
             }
         });
