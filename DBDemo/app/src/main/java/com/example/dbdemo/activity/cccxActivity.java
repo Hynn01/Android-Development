@@ -9,6 +9,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.dbdemo.MyApplication;
 import com.example.dbdemo.R;
 import com.example.dbdemo.dao.Repo;
 import com.youth.banner.Banner;
@@ -22,7 +23,7 @@ public class cccxActivity extends Activity {
     private Button bt_query;
     private ImageButton bt_back;
     private TextView tv_cc;//车次
-    private Repo repo;//数据库操作
+    private MyApplication application;//数据库操作
     int result;//返回结果
     String input;//输入
 
@@ -58,12 +59,12 @@ public class cccxActivity extends Activity {
         tv_cc=(TextView) findViewById(R.id.autoinput_cccx_cc);
         input=tv_cc.getText().toString();
         result=0;
-
+        application= (MyApplication)this.getApplication();
         bt_query.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //todo:查询
-                result=repo.getBusIdByName(input);
+                result=application.getDao().getBusIdByName(input);
             }
         });
 

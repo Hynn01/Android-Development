@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.example.dbdemo.MyApplication;
 import com.example.dbdemo.R;
 import com.example.dbdemo.dao.Repo;
 import com.youth.banner.Banner;
@@ -24,7 +25,7 @@ public class zzcxActivity extends Activity {
     private ImageButton bt_back;
     private AutoCompleteTextView tv_start;
     private AutoCompleteTextView tv_end;
-    private Repo repo;//数据库操作
+    private MyApplication application;//数据库操作
     int result;//返回结果
     //（1）站站查询goTozzcxView()
     //（2）切换到站站查询界面
@@ -51,7 +52,7 @@ public class zzcxActivity extends Activity {
         //（5）返回按钮ID
         bt_back=(ImageButton)findViewById(R.id.back_zzcx);
 
-
+        application= (MyApplication)this.getApplication();
 //
         //（11）获得出发站文本框引用
         //（12）获得中转站文本框引用
@@ -87,8 +88,8 @@ public class zzcxActivity extends Activity {
             @Override
             public void onClick(View view) {
                 //todo:查询
-                int startResult=repo.getStationIdByName(startStation);
-                int endResult=repo.getStationIdByName(endStation);
+                int startResult=application.getDao().getStationIdByName(startStation);
+                int endResult=application.getDao().getStationIdByName(endStation);
                 if(startResult==1&&endResult==1)
                     result=1;
                 else
