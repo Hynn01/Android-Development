@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.example.dbdemo.MyApplication;
 import com.example.dbdemo.R;
+import com.example.dbdemo.entity.Station;
 import com.youth.banner.Banner;
 
 import java.util.ArrayList;
@@ -87,16 +88,15 @@ public class cztjActivity extends Activity {
                         //（18）插入数据
                         //（19）如果插入失败，提醒用户
                         //（20）否则为成功插入数据
-                        Station
-                        int insert_id=app.getDao().insertStation(station_name);
+                        Station station=new Station(station_name,station_sim);
+                        //int insert_flag=app.getDao().insertStation(station);
+                        app.getDao().insertStation(station);
 //                        if(insert_flag==false){
 //                            Toast toast = Toast.makeText(cztjActivity.this,"插入失败",Toast.LENGTH_SHORT);
 //                            toast.show();
 //                        }else{
-//                            if(insert_flag==false){
-//                                Toast toast = Toast.makeText(cztjActivity.this,"插入成功",Toast.LENGTH_SHORT);
-//                                toast.show();
-//                            }
+                            Toast toast = Toast.makeText(cztjActivity.this,"车站添加成功",Toast.LENGTH_SHORT);
+                            toast.show();
 //                        }
 
                     }

@@ -21,6 +21,15 @@ public class Station {
     public int isTransfer;
    // public ArrayList<Bus> buses;
 
+    public Station(){
+
+    }
+
+    public Station(String name,String abbreviation){
+        this.name=name;
+        this.abbreviation=abbreviation;
+    }
+
     public int getStation_ID(){
         return  station_ID;
     }
