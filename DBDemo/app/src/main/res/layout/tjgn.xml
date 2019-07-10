@@ -112,19 +112,18 @@
         android:layout_marginBottom="5dp"
         android:orientation="vertical">
 
+        <Button
+            android:id="@+id/bt_tjcz"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="车站添加"
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/bt_tjcc"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:text="车次添加"
-            android:textSize="20sp" />
-
-        <Button
-            android:id="@+id/bt_tjcz"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="车站添加"
             android:textSize="20sp" />
 
         <Button

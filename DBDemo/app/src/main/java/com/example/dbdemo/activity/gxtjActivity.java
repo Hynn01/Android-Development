@@ -22,7 +22,7 @@ public class gxtjActivity extends Activity {
 
     private EditText et_zm;
     private EditText et_cc;
-    private EditText et_zc;
+    //private EditText et_zc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +55,7 @@ public class gxtjActivity extends Activity {
         //（11）获取发车时间输入框的引用
         et_zm=(EditText) findViewById(R.id.autoinput_gxtj_zm);
         et_cc=(EditText) findViewById(R.id.autoinput_gxtj_cc);
-        et_zc=(EditText) findViewById(R.id.autoinput_gxtj_zc);
+        //et_zc=(EditText) findViewById(R.id.autoinput_gxtj_zc);
 
         //（7）为添加按钮添加监听
         bt_add.setOnClickListener(new View.OnClickListener() {

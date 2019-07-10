@@ -175,29 +175,29 @@
                 android:hint="请输入站名" />
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/blackOutLayoutNumber3"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:gravity="left|center_horizontal"
-            android:orientation="horizontal"
-            android:paddingLeft="10dp"
-            android:paddingTop="0dp"
-            android:paddingBottom="0dp">
+        <!--<LinearLayout-->
+            <!--android:id="@+id/blackOutLayoutNumber3"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="50dp"-->
+            <!--android:gravity="left|center_horizontal"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:paddingLeft="10dp"-->
+            <!--android:paddingTop="0dp"-->
+            <!--android:paddingBottom="0dp">-->
 
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="站次:"
-                android:textSize="20sp" />
+            <!--<TextView-->
+                <!--android:layout_width="100dp"-->
+                <!--android:layout_height="50dp"-->
+                <!--android:text="站次:"-->
+                <!--android:textSize="20sp" />-->
 
-            <EditText
-                android:id="@+id/autoinput_gxtj_zc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:hint="请输入站次" />
-        </LinearLayout>
+            <!--<EditText-->
+                <!--android:id="@+id/autoinput_gxtj_zc"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:background="@null"-->
+                <!--android:hint="请输入站次" />-->
+        <!--</LinearLayout>-->
 
     </LinearLayout>
 
