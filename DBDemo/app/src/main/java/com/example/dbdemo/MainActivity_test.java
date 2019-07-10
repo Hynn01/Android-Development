@@ -10,7 +10,7 @@
 //
 //import java.util.ArrayList;
 //
-//public class MainActivity extends AppCompatActivity {
+//public class MainActivity_test extends AppCompatActivity {
 //    Repo repo;
 //    @Override
 //    protected void onCreate(Bundle savedInstanceState) {
@@ -98,5 +98,6 @@
 //       // ((MyApplication)this.getApplication()).checkData();
 //
 //        System.out.println( ((MyApplication) this.getApplication()).findPathMiddle(1,9));
+//        System.out.println( ((MyApplication) this.getApplication()).findPathMiddle(1,5));
 //    }
 //}

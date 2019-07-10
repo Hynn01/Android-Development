@@ -1,5 +1,8 @@
 package com.example.dbdemo.entity;
 
+import com.example.dbdemo.entity.Bus;
+
+import java.util.ArrayList;
 
 public class Station {
     //表名

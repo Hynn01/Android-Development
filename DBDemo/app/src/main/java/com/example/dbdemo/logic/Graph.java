@@ -4,7 +4,6 @@ import com.example.dbdemo.entity.Bus;
 import com.example.dbdemo.entity.Path;
 import com.example.dbdemo.entity.Station;
 
-
 import java.util.ArrayList;
 
 //链式前向星建立图
@@ -35,7 +34,7 @@ public class Graph {
     }
     public  void clear(){
         nodePaths.clear();
-        nodePaths.clear();
+        edgePaths.clear();
         nodePath.clear();
         edgePath.clear();
         for(int i=0; i<SIZE; i++) vis[i] = false;//清空标志数组
@@ -131,11 +130,14 @@ public class Graph {
             //1 2 2 3 4 5
             boolean[] visit = new boolean[SIZE];
             ArrayList<Integer> cur = edgePaths.get(i);//取出当前路径
+            System.out.println("当前检测的路径 = " + cur);
             int pre = -1;//记前一个边 为-1
             for(int x : cur){  //遍历所有的边
                 if(x != pre){ //要换乘了，看一下将要换乘的线路是不是之前下来的
                     if(visit[x]){ //如果是之前下来的，说明这是傻逼路径
                         edgePaths.remove(i);
+                        nodePaths.remove(i);
+                        i--;
                         break;
                     }
                     visit[x] = true;
@@ -143,15 +145,16 @@ public class Graph {
                 }
             }
         }
+        System.out.println("去除傻逼路径之后：");
+        System.out.println("边路径集合 "+ edgePaths);
+        System.out.println("点路径集合 " + nodePaths);
     }
 
     //中转站查询 返回的是Path的ArrayList
     //每一个Path都是一条路径 里面有起始栈  以及有序中转站集合
     public ArrayList<Path> findPathMiddle(ArrayList<Station>stations , ArrayList<Bus>buses , int u, int v){
         clear();//清空结果集合
-
         dfs(u , v); //计算所有路径 填充paths 边结果路径
-
         System.out.println("点路径的条数 ： " + nodePaths.size());
         System.out.println("边路径的条数" + edgePaths.size());
         System.out.println("点路径集合 ： " + nodePaths);
@@ -161,27 +164,33 @@ public class Graph {
         System.out.println("start = " + start.station_ID + " end = " + end.station_ID);
         //处理paths
         //1. 去除傻逼路径
-        //dealStupidPaths();
+        dealStupidPaths();
         //2. 添加换乘信息
         //1111122223333
         ArrayList<Path> result = new ArrayList<Path>();
         if(edgePaths == null)  return  null;
+        int cnt = 0;//遍历到那一条路径了
         for(ArrayList<Integer> edgePath : edgePaths){
             System.out.println("edgePath = " + edgePath);
             Path path = new Path(start , end );
             int pre = edgePath.get(0);//第一条边
-            int offset = 1;//同样边的个数
-            int curStation = u;//刚开始当前站肯定是出发点嘛
+            int startStation = u;//刚开始当前站肯定是出发点嘛
+            int curStation = nodePaths.get(cnt).get(1);//当前走到的站  nodePath
             for(int i=1; i<edgePath.size(); i++){
-                if(edgePath.get(i) == pre) offset++;
+                if(edgePath.get(i) == pre){
+                    curStation = nodePaths.get(cnt).get(i+1);
+                }
                 else{
-                    //表示有新的换乘站加入
-                    Station trans = buses.get(pre).seachOffset(u , v, curStation , offset);
-                    path.addTrans(trans);
-                    curStation = trans.getStation_ID();//当前站变更
-                    offset = 1;//偏移量重置
+                    //表示有新的换乘站
+                    System.out.println("新换乘站ID" + curStation);
+                    path.addTrans(stations.get(curStation - 1));
+                    startStation = curStation;//当前站变更
+                    curStation = nodePaths.get(cnt).get(i+1);
+                    pre = edgePath.get(i);
                 }
             }
+            cnt++;
+            System.out.println("得到新转车路径---------------" + path);
             result.add(path);
         }
         //最后一个不算换乘啦，已经到啦

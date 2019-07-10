@@ -33,30 +33,6 @@ public class Bus {
         return bus_ID;
     }
 
-    //看u到v是否是正方向
-    public boolean judgeDirection(int u, int v){
-        int pos = 0;
-        for(int i=0; i<stations.size(); i++){
-            if(stations.get(i).getStation_ID() == u){
-                pos = i;
-                break;
-            }
-        }
-        for(int i=pos+1; i<stations.size(); i++){
-            if(stations.get(i).getStation_ID() == v) return true;
-        }
-        return false;
-    }
-    //找换乘点
-    public Station seachOffset(int st , int ed , int cur , int offset){
-        for(int i=0; i<stations.size(); i++){
-            if(stations.get(i).getStation_ID() == cur){
-                if(judgeDirection(st ,ed)) return stations.get(cur + offset);
-                else stations.get(cur - offset);
-            }
-        }
-        return null;
-    }
     public void setBus_ID(int bus_ID) {
         this.bus_ID = bus_ID;
     }
@@ -68,6 +44,7 @@ public class Bus {
     public void setStations(ArrayList<Station> stations) {
         this.stations = stations;
     }
+
     public String toString(){
        String result = "线路id = " + this.bus_ID + " 线路名:" + this.name;
         return result;
