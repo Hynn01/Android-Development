@@ -89,18 +89,18 @@ public class zzcxActivity extends Activity {
             public void onClick(View view) {
                 //todo:查询
                 result=application.findPathDirectly(startStation,endStation);
+                if(result==null){
+                    Toast toast = Toast.makeText(zzcxActivity.this, "没有查询结果", Toast.LENGTH_SHORT);
+                    toast.show();
+                }else{
+                    Intent intent = new Intent(zzcxActivity.this,zzcxjgActivity.class);
+                    startActivity(intent);
+                }
 
             }
         });
 //        //（24）如果没有查询就通过Toast消息提醒用户
 //        //（25）如有查询结果则进一步调用查询结果界面用listview展示
-        if(result==null){
-            Toast toast = Toast.makeText(zzcxActivity.this, "没有查询结果", Toast.LENGTH_SHORT);
-            toast.show();
-        }else{
-            Intent intent = new Intent(zzcxActivity.this,zzcxjgActivity.class);
-            startActivity(intent);
-        }
 
         //（26）为返回按钮添加监听
         //（27）返回主菜单界面

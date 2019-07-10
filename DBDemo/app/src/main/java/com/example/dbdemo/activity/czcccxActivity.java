@@ -68,20 +68,21 @@ public class czcccxActivity extends Activity {
                 //todo:查询
                 int back=application.getDao().getStationIdByName(input);
                 result=application.getDao().getBusArrayList(back);
+                //        //（10）如果查询结果为空
+//        //（11）发toast消息提醒
+//        //（12）否则切换到结果listview界面
+                if(result==null){
+                    Toast toast = Toast.makeText(czcccxActivity.this, "没有查询结果", Toast.LENGTH_SHORT);
+                    toast.show();
+                }else{
+                    Intent intent = new Intent(czcccxActivity.this,zzcxjgActivity.class);
+                    startActivity(intent);
+                }
 
             }
         });
 //
-//        //（10）如果查询结果为空
-//        //（11）发toast消息提醒
-//        //（12）否则切换到结果listview界面
-        if(result==null){
-            Toast toast = Toast.makeText(czcccxActivity.this, "没有查询结果", Toast.LENGTH_SHORT);
-            toast.show();
-        }else{
-            Intent intent = new Intent(czcccxActivity.this,zzcxjgActivity.class);
-            startActivity(intent);
-        }
+
 
         //（13）为返回按钮添加监听
         //（14）在监听函数中返回主菜单
