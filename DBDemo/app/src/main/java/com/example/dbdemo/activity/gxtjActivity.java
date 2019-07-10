@@ -48,7 +48,7 @@ public class gxtjActivity extends Activity {
         bt_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(gxtjActivity.this,MainActivity.class);
+                Intent intent = new Intent(gxtjActivity.this,tjgnActivity.class);
                 startActivity(intent);
             }
         });

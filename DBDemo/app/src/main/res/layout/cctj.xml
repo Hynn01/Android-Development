@@ -121,7 +121,7 @@
                 android:text="车次:"
                 android:textSize="20sp" />
 
-            <AutoCompleteTextView
+            <EditText
                 android:id="@+id/autoinput_cctj_cc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -145,7 +145,7 @@
                 android:text="车型:"
                 android:textSize="20sp" />
 
-            <AutoCompleteTextView
+            <EditText
                 android:id="@+id/autoinput_cctj_cx"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -169,7 +169,7 @@
                 android:text="起始站:"
                 android:textSize="20sp" />
 
-            <AutoCompleteTextView
+            <EditText
                 android:id="@+id/autoinput_cctj_qsz"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -193,7 +193,7 @@
                 android:text="终点站:"
                 android:textSize="20sp" />
 
-            <AutoCompleteTextView
+            <EditText
                 android:id="@+id/autoinput_cctj_zdz"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
