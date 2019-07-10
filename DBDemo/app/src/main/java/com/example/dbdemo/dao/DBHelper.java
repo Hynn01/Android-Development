@@ -4,9 +4,9 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.datasource.entity.Bus;
-import com.example.datasource.entity.Station;
-import com.example.datasource.entity.Trancepos;
+import com.example.dbdemo.entity.Bus;
+import com.example.dbdemo.entity.Station;
+import com.example.dbdemo.entity.Trancepos;
 
 public class DBHelper extends SQLiteOpenHelper {
 

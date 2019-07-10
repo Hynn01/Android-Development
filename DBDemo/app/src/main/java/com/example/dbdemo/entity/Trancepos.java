@@ -1,4 +1,4 @@
-package com.example.datasource.entity;
+package com.example.dbdemo.entity;
 
 public class Trancepos {
     //表名

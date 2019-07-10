@@ -1,4 +1,4 @@
-package com.example.datasource.entity;
+package com.example.dbdemo.entity;
 
 import java.util.ArrayList;
 

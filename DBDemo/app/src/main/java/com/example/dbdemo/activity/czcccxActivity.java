@@ -9,7 +9,9 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.dbdemo.R;
+import com.example.dbdemo.entity.Station;
 import com.youth.banner.Banner;
+import com.example.dbdemo.dao.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +23,9 @@ public class czcccxActivity extends Activity {
     private Button bt_query;
     private ImageButton bt_back;
     private TextView tv_cz;//车次
-
+    private Repo repo;//数据库操作
+    Station result;//返回结果
+    String input;//输入
     //（1）车站查询，goToczcccxView()
     //（2）切换到车站查询界面
     //    用setContentView（）
@@ -30,6 +34,8 @@ public class czcccxActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.czcccx);
+        //初始化数据库
+        repo= new Repo(this);
 
         Banner banner = (Banner) findViewById(R.id.banner_zzcx);
         //本地图片数据（资源文件）
@@ -50,27 +56,29 @@ public class czcccxActivity extends Activity {
 //        //（7）为查询按钮添加监听
 //        //（8）在监听函数里获取车站输入框中的文本
 //        //（9）调用方法查询
-//        tv_cz=(ImageButton)findViewById(R.id.tv_cc);
-//        String input=tv_cz.getText().toString();
-//        ArrayList<String> result=null;
-//        bt_query.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                //todo:查询
-//                //result=query(input)
-//            }
-//        });
+        tv_cz=(TextView) findViewById(R.id.autoinput_czcx_zc);
+        input=tv_cz.getText().toString();
+        result=null;
+        bt_query.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //todo:查询
+                int back=repo.getStationIdByName(input);
+                result=repo.getStationById(back);
+
+            }
+        });
 //
 //        //（10）如果查询结果为空
 //        //（11）发toast消息提醒
 //        //（12）否则切换到结果listview界面
-//        if(result==null){
-//            Toast toast = Toast.makeText(czcccxActivity.this, "没有查询结果", Toast.LENGTH_SHORT);
-//            toast.show();
-//        }else{
-//            Intent intent = new Intent(czcccxActivity.this,zzcxjgActivity.class);
-//            startActivity(intent);
-//        }
+        if(result==null){
+            Toast toast = Toast.makeText(czcccxActivity.this, "没有查询结果", Toast.LENGTH_SHORT);
+            toast.show();
+        }else{
+            Intent intent = new Intent(czcccxActivity.this,zzcxjgActivity.class);
+            startActivity(intent);
+        }
 
         //（13）为返回按钮添加监听
         //（14）在监听函数中返回主菜单

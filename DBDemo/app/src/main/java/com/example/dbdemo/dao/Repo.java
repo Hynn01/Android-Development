@@ -5,9 +5,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.datasource.entity.Bus;
-import com.example.datasource.entity.Station;
-import com.example.datasource.entity.Trancepos;
+import com.example.dbdemo.entity.Bus;
+import com.example.dbdemo.entity.Station;
+import com.example.dbdemo.entity.Trancepos;
 
 import java.util.ArrayList;
 import java.util.HashMap;
