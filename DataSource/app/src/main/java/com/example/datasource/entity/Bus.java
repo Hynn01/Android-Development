@@ -35,6 +35,7 @@ public class Bus {
 
     //看u到v是否是正方向
     public boolean judgeDirection(int u, int v){
+        System.out.println("线路号 = " + this.getBus_ID() + "所有的站"+stations);
         int pos = 0;
         for(int i=0; i<stations.size(); i++){
             if(stations.get(i).getStation_ID() == u){
@@ -42,6 +43,7 @@ public class Bus {
                 break;
             }
         }
+
         for(int i=pos+1; i<stations.size(); i++){
             if(stations.get(i).getStation_ID() == v) return true;
         }
@@ -49,10 +51,12 @@ public class Bus {
     }
     //找换乘点
     public Station seachOffset(int st , int ed , int cur , int offset){
+        boolean flag = judgeDirection(st ,ed);
+        System.out.println("方向正负: " + flag);
         for(int i=0; i<stations.size(); i++){
             if(stations.get(i).getStation_ID() == cur){
-                if(judgeDirection(st ,ed)) return stations.get(cur + offset);
-                else stations.get(cur - offset);
+                if(flag) return stations.get(i + offset);
+                else stations.get(i - offset);
             }
         }
         return null;
