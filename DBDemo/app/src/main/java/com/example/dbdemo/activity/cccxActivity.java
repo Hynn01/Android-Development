@@ -54,6 +54,7 @@ public class cccxActivity extends Activity {
 //        tv_cc=(ImageButton)findViewById(R.id.tv_cc);
 //        String input=tv_cc.getText().toString();
 //        ArrayList<String> result=null;
+
 //        bt_query.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
