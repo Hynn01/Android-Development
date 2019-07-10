@@ -98,5 +98,6 @@ public class MainActivity extends AppCompatActivity {
        // ((MyApplication)this.getApplication()).checkData();
 
         System.out.println( ((MyApplication) this.getApplication()).findPathMiddle(1,9));
+        System.out.println( ((MyApplication) this.getApplication()).findPathMiddle(1,5));
     }
 }
