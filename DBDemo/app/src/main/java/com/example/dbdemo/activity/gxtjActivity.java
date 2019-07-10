@@ -13,7 +13,7 @@ import com.youth.banner.Banner;
 import java.util.ArrayList;
 import java.util.List;
 
-//关系添加(站次添加？)
+//关系添加(站次添加)
 public class gxtjActivity extends Activity {
 
     private Button bt_add;
@@ -22,9 +22,9 @@ public class gxtjActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        //（1）添加功能函数goTocctjView()
-        //（2）切换到车次添加界面
-        //（3）标识当前所在界面为车次添加界面
+        //（1）站次添加功能 goTogxtjView()
+        //（2）切换到关系添加界面
+        //（3）标识当前界面为关系添加界面
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gxtj);
 
@@ -43,6 +43,12 @@ public class gxtjActivity extends Activity {
         bt_add=(Button)findViewById(R.id.bt_add);
         bt_back=(ImageButton)findViewById(R.id.bt_back);
 
+        //（6）为站名输入框添加适配器
+        //（8）获取车次输入框的引用
+        //（9）获取站名输入框的引用
+
+        //（7）为添加按钮添加监听
+
         //（21）为返回按钮添加监听
         //（22）在监听函数中返回添加功能
         bt_back.setOnClickListener(new View.OnClickListener() {
@@ -54,15 +60,11 @@ public class gxtjActivity extends Activity {
         });
     }
 
-//（1）站次添加功能 goTogxtjView()
-//（2）切换到关系添加界面
-//（3）标识当前界面为关系添加界面
-//（4）获取添加按钮的引用
-//（5）获取返回按钮的引用
-//（6）为站名输入框添加适配器
-//（7）为添加按钮添加监听
-//（8）获取车次输入框的引月
-//（9）获取站名输入框的引用
+
+
+
+
+
 //（10）获取到站时间输入框的引用
 //（11）获取发车时间输入框的引用
 //（12）取出对应输入框中的文本信息

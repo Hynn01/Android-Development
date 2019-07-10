@@ -1,4 +1,4 @@
-package com.example.datasource.dao;
+package com.example.dbdemo.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
