@@ -9,6 +9,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.dbdemo.R;
+import com.example.dbdemo.entity.Bus;
 import com.example.dbdemo.entity.Station;
 import com.youth.banner.Banner;
 import com.example.dbdemo.dao.*;
@@ -24,7 +25,7 @@ public class czcccxActivity extends Activity {
     private ImageButton bt_back;
     private TextView tv_cz;//车次
     private Repo repo;//数据库操作
-    Station result;//返回结果
+    ArrayList<Bus> result;//返回结果
     String input;//输入
     //（1）车站查询，goToczcccxView()
     //（2）切换到车站查询界面
@@ -64,7 +65,7 @@ public class czcccxActivity extends Activity {
             public void onClick(View view) {
                 //todo:查询
                 int back=repo.getStationIdByName(input);
-                result=repo.getStationById(back);
+                result=repo.getBusArrayList(back);
 
             }
         });
