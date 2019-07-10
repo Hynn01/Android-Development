@@ -1,6 +1,6 @@
-package com.example.datasource.entity;
+package com.example.dbdemo.entity;
 
-import com.example.datasource.entity.Station;
+import com.example.dbdemo.entity.Station;
 
 import java.util.ArrayList;
 
