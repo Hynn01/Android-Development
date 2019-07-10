@@ -7,8 +7,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
+import com.example.dbdemo.MyApplication;
 import com.example.dbdemo.R;
+import com.example.dbdemo.entity.Trancepos;
 import com.youth.banner.Banner;
 
 import java.util.ArrayList;
@@ -16,6 +19,8 @@ import java.util.List;
 
 //关系添加(站次添加)
 public class gxtjActivity extends Activity {
+
+    private MyApplication app;
 
     private Button bt_add;
     private ImageButton bt_back;
@@ -26,6 +31,8 @@ public class gxtjActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        app=(MyApplication) this.getApplication();
 
         //（1）站次添加功能 goTogxtjView()
         //（2）切换到关系添加界面
@@ -61,7 +68,11 @@ public class gxtjActivity extends Activity {
         bt_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 //（12）取出对应输入框中的文本信息
+                String cc=et_cc.getText().toString();
+                String zm=et_zm.getText().toString();
+
                 //（13）从数据库中取得最大的它ID值
                 //（14）列车对应的ID变量
                 //（15）车站对应的ID变量
@@ -71,11 +82,31 @@ public class gxtjActivity extends Activity {
                 //（19）判断是否有该车
                 //（20）有则取出其对应结果
                 //（21）否则发消息提醒用户，无该车
+                int station_id=app.getDao().getStationIdByName(zm);
+                boolean station_exist=app.getDao().stationIsExistById(station_id);
+                if(station_exist==false){
+                    Toast toast = Toast.makeText(gxtjActivity.this,"无该车站，请重新输入",Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+
+                int bus_id=app.getDao().getBusIdByName(cc);
+                boolean bus_exist=app.getDao().stationIsExistById(bus_id);
+                if(bus_exist==false){
+                    Toast toast = Toast.makeText(gxtjActivity.this,"无该车次，请重新输入",Toast.LENGTH_SHORT);
+                    toast.show();
+                }
                 //（22）查询该车对应于该站的关系是否存在
                 //（23）如果己经存在发消息提醒用户
                 //（24）具体的插入相应数据库数据
                 //（25）如果插入失败，发消息提醒用户
                 //（26）否则为插入成功
+                if(station_exist==true&&bus_exist==true){
+                    Trancepos trancepos=new Trancepos(bus_id,station_id);
+                    app.getDao().insertTrancepos(trancepos);
+                    Toast toast = Toast.makeText(gxtjActivity.this,"关系添加成功",Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+
 
             }
         });

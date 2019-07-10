@@ -17,4 +17,14 @@ public class Trancepos {
     public int station_ID;
     public String arrive;
     public String leave;
+
+    public Trancepos(){
+
+    }
+
+    public Trancepos(int bus_ID,int station_ID){
+        this.bus_ID=bus_ID;
+        this.station_ID=station_ID;
+    }
+
 }

@@ -79,9 +79,10 @@ public class cztjActivity extends Activity {
                     //（14）准备数据库查询该名称是否已经存在
                     //（15）执行数据库查询
                     int station_id=app.getDao().getStationIdByName(station_name);
+                    boolean station_exist=app.getDao().stationIsExistById(station_id);
                     //（16）如果不为0，说明存在此车站
                     //（17）发Toast消息提醒用户
-                    if(station_id!=0){
+                    if(station_exist==true){
                         Toast toast = Toast.makeText(cztjActivity.this,"存在此车站，请重新输入",Toast.LENGTH_SHORT);
                         toast.show();
                     }else{

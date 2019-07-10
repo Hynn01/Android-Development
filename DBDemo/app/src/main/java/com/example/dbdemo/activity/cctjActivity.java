@@ -33,6 +33,8 @@ public class cctjActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        app=(MyApplication) this.getApplication();
+
         //（1）添加功能函数goTocctjView()
         //（2）切换到车次添加界面
         //（3）标识当前所在界面为车次添加界面
@@ -82,27 +84,46 @@ public class cctjActivity extends Activity {
                 //（15）如果有车则发toast信息提示返回
                 int bus_id=app.getDao().getBusIdByName(cc);
                 boolean bus_exist=app.getDao().busIsExistById(bus_id);
-                if(bus_exist==true){
+//                if(bus_exist==true){
+//                    Toast toast = Toast.makeText(cctjActivity.this,"车次存在，请重新输入",Toast.LENGTH_SHORT);
+//                    toast.show();
+//                }
 
-                }else{
-
+                if(bus_id!=0){
+                    Toast toast = Toast.makeText(cctjActivity.this,"车次存在，请重新输入",Toast.LENGTH_SHORT);
+                    toast.show();
                 }
-
 
                 //（16）查询是否有该始发站数据库语句并进行查询
                 //（17）如果没有则发toast信息提示返回
-                int start_station_id=0;
+                int start_station_id=app.getDao().getStationIdByName(qsz);
+                boolean start_station_exist=app.getDao().stationIsExistById(start_station_id);
+//                if(start_station_exist==false){
+//                    Toast toast = Toast.makeText(cctjActivity.this,"起始车站不存在，请重新输入",Toast.LENGTH_SHORT);
+//                    toast.show();
+//                }
+                if(start_station_id==0){
+                    Toast toast = Toast.makeText(cctjActivity.this,"起始车站不存在，请重新输入",Toast.LENGTH_SHORT);
+                    toast.show();
+                }
 
                 //（18）查询是否有该终点站的数据库语句并进行查询
                 //（19）如果没有则发toast信息提示返回
-                int end_station_id=0;
+                int end_station_id=app.getDao().getStationIdByName(zdz);
+                boolean end_station_exist=app.getDao().stationIsExistById(start_station_id);
+                if(end_station_exist==false){
+                    Toast toast = Toast.makeText(cctjActivity.this,"终点车站不存在，请重新输入",Toast.LENGTH_SHORT);
+                    toast.show();
+                }
 
                 //（20）插入用户需要添加的列车
                 //（21）如果添加失败
                 //（22）发toast消息提醒用户
-                Bus bus=new Bus(cc,cx,start_station_id,end_station_id);
-                Toast toast = Toast.makeText(cctjActivity.this,"车次添加成功",Toast.LENGTH_SHORT);
-                toast.show();
+                if(bus_exist==false && start_station_exist==true && end_station_exist==true){
+                    Bus bus=new Bus(cc,cx,start_station_id,end_station_id);
+                    Toast toast = Toast.makeText(cctjActivity.this,"车次添加成功",Toast.LENGTH_SHORT);
+                    toast.show();
+                }
 
 
             }
