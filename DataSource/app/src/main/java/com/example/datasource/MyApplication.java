@@ -115,4 +115,13 @@ public class MyApplication extends Application {
     public void setBuses(ArrayList<Bus> buses) {
         this.buses = buses;
     }
+        // 车次查询  参数：线路名字
+
+    //车站查询  参数 车站名字
+
+    //车次添加 添加车次号  车型  起始站  终点站
+
+    //车站添加 车站名字  车站简称
+
+    // 站次关系 车站  车次
 }

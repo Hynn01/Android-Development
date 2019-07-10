@@ -19,7 +19,7 @@ public class Path {
 
     public String toString(){
         String res = "";
-        res += start.name;
+        res += start.name + " ";
         for(Station station : transferStation){
             res += station.name + " ";
         }
