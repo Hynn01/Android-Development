@@ -26,7 +26,7 @@ public class zzcxActivity extends Activity {
     private AutoCompleteTextView tv_start;
     private AutoCompleteTextView tv_end;
     private MyApplication application;//数据库操作
-    int result;//返回结果
+    ArrayList<String> result;//返回结果
     //（1）站站查询goTozzcxView()
     //（2）切换到站站查询界面
     //    用setContentView（）
@@ -51,7 +51,7 @@ public class zzcxActivity extends Activity {
 
         //（5）返回按钮ID
         bt_back=(ImageButton)findViewById(R.id.back_zzcx);
-
+//初始化application
         application= (MyApplication)this.getApplication();
 //
         //（11）获得出发站文本框引用
@@ -82,23 +82,19 @@ public class zzcxActivity extends Activity {
 //        //（21）否则进行不带中转站查询
 //        //（23）调用数据库查询
 //        //todo:调用数据库查询
-        result=0;
+        result=null;
 ////        //（10）为查询按钮添加监听
         bt_query.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //todo:查询
-                int startResult=application.getDao().getStationIdByName(startStation);
-                int endResult=application.getDao().getStationIdByName(endStation);
-                if(startResult==1&&endResult==1)
-                    result=1;
-                else
-                    result=0;
+                result=application.findPathDirectly(startStation,endStation);
+
             }
         });
 //        //（24）如果没有查询就通过Toast消息提醒用户
 //        //（25）如有查询结果则进一步调用查询结果界面用listview展示
-        if(result==0){
+        if(result==null){
             Toast toast = Toast.makeText(zzcxActivity.this, "没有查询结果", Toast.LENGTH_SHORT);
             toast.show();
         }else{
@@ -116,5 +112,7 @@ public class zzcxActivity extends Activity {
             }
         });
     }
-
+    public ArrayList<String> getResult(){
+        return result;
+    }
 }
