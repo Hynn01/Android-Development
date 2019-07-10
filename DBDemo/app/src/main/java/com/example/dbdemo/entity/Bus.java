@@ -26,6 +26,10 @@ public class Bus {
         stations = new ArrayList<Station>();
         this.bus_ID = id;
     }
+
+    public Bus(String name,String type,int oStation,int terminus){
+        stations = new ArrayList<Station>();
+    }
     public void addStation(Station station){
         stations.add(station);
     }

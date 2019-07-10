@@ -7,8 +7,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
+import com.example.dbdemo.MyApplication;
 import com.example.dbdemo.R;
+import com.example.dbdemo.entity.Bus;
 import com.youth.banner.Banner;
 
 import java.util.ArrayList;
@@ -16,6 +19,8 @@ import java.util.List;
 
 //车次添加
 public class cctjActivity extends Activity {
+
+    private MyApplication app;
 
     private Button bt_add;
     private ImageButton bt_back;
@@ -75,13 +80,30 @@ public class cctjActivity extends Activity {
 
                 //（14）查询是否有该列车的数据库语句并进行查询
                 //（15）如果有车则发toast信息提示返回
+                int bus_id=app.getDao().getBusIdByName(cc);
+                boolean bus_exist=app.getDao().busIsExistById(bus_id);
+                if(bus_exist==true){
+
+                }else{
+
+                }
+
+
                 //（16）查询是否有该始发站数据库语句并进行查询
                 //（17）如果没有则发toast信息提示返回
+                int start_station_id=0;
+
                 //（18）查询是否有该终点站的数据库语句并进行查询
                 //（19）如果没有则发toast信息提示返回
+                int end_station_id=0;
+
                 //（20）插入用户需要添加的列车
                 //（21）如果添加失败
                 //（22）发toast消息提醒用户
+                Bus bus=new Bus(cc,cx,start_station_id,end_station_id);
+                Toast toast = Toast.makeText(cctjActivity.this,"车次添加成功",Toast.LENGTH_SHORT);
+                toast.show();
+
 
             }
         });
@@ -95,10 +117,6 @@ public class cctjActivity extends Activity {
                 startActivity(intent);
             }
         });
-
     }
-
-
-
 
 }
