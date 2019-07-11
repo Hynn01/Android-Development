@@ -41,8 +41,9 @@ public class helpActivity extends Activity {
         bt_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(helpActivity.this,MainActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(helpActivity.this,MainActivity.class);
+//                startActivity(intent);
+                helpActivity.this.finish();
             }
         });
     }

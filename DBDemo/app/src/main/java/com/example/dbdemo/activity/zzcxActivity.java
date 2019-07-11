@@ -121,8 +121,9 @@ public class zzcxActivity extends Activity {
         bt_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(zzcxActivity.this,MainActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(zzcxActivity.this,MainActivity.class);
+//                startActivity(intent);
+                zzcxActivity.this.finish();
             }
         });
     }

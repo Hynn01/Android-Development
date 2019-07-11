@@ -24,15 +24,29 @@
             android:textSize="20sp" />
 
         <!--"返回"图片按钮-->
+        <!--<ImageButton-->
+            <!--android:id="@+id/back_zzcx"-->
+            <!--android:layout_width="50dp"-->
+            <!--android:layout_height="50dp"-->
+            <!--android:layout_marginLeft="5dp"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:layout_marginRight="83dp"-->
+            <!--android:layout_toLeftOf="@id/zzcx_title"-->
+            <!--android:background="#00FFFFFF"-->
+            <!--android:src="@android:drawable/ic_menu_revert" />-->
+
         <ImageButton
             android:id="@+id/back_zzcx"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="83dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="70dp"
+            android:layout_marginBottom="15dp"
             android:layout_toLeftOf="@id/zzcx_title"
             android:background="#00FFFFFF"
+            android:padding="2dp"
             android:src="@android:drawable/ic_menu_revert" />
 
     </RelativeLayout>

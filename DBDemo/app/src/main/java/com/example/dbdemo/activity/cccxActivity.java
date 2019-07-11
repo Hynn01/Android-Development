@@ -107,8 +107,9 @@ public class cccxActivity extends Activity {
         bt_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(cccxActivity.this,MainActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(cccxActivity.this,MainActivity.class);
+//                startActivity(intent);
+                cccxActivity.this.finish();
             }
         });
 

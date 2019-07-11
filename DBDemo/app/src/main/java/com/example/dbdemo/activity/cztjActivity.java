@@ -114,8 +114,9 @@ public class cztjActivity extends Activity {
         bt_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(cztjActivity.this,tjgnActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(cztjActivity.this,tjgnActivity.class);
+//                startActivity(intent);
+                cztjActivity.this.finish();
             }
         });
 

@@ -144,8 +144,9 @@ public class cctjActivity extends Activity {
         bt_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(cctjActivity.this,tjgnActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(cctjActivity.this,tjgnActivity.class);
+//                startActivity(intent);
+                cctjActivity.this.finish();
             }
         });
     }

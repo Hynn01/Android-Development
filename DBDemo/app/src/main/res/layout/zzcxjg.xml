@@ -20,7 +20,7 @@
             android:layout_centerInParent="true"
             android:gravity="center"
             android:textColor="@android:color/black"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:text="站站查询结果" />
 
         <!--"返回"图片按钮-->
