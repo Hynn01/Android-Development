@@ -9,6 +9,8 @@ import com.example.dbdemo.logic.Graph;
 import com.example.dbdemo.entity.Path;
 
 import java.util.ArrayList;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 public class MyApplication extends Application {
     private Repo repo;
@@ -97,6 +99,24 @@ public class MyApplication extends Application {
         repo.close();
     }
 
+    //数据匹配函数
+    public String[] Match(String[] str,String child){
+        String [] matchStr;
+        ArrayList<String> list = new ArrayList<String>();
+        Pattern p=Pattern.compile(child);
+
+        int i;
+        for(i=0;i<str.length;i++) {
+            Matcher m=p.matcher(str[i]);
+            if(m.find()) {
+                list.add(str[i]);
+            }
+        }
+
+        matchStr=(String[])list.toArray(new String[0]);
+        return matchStr;
+    }
+
     public Repo getDao() {
         return repo;
     }
@@ -115,6 +135,8 @@ public class MyApplication extends Application {
     public void setBuses(ArrayList<Bus> buses) {
         this.buses = buses;
     }
+
+
 
     // 车次查询  参数：线路名字
 

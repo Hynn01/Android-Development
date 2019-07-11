@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -25,8 +27,10 @@ public class czcccxActivity extends Activity {
 
     private Button bt_query;
     private ImageButton bt_back;
-    private TextView tv_cz;//车次
+   // private TextView tv_cz;//车次
     private MyApplication application;//数据库操作
+    private AutoCompleteTextView autoinput_czcx_zc;
+
     ArrayList<Bus> result;//返回结果
     String input;//输入
     //（1）车站查询，goToczcccxView()
@@ -59,8 +63,22 @@ public class czcccxActivity extends Activity {
 //        //（7）为查询按钮添加监听
 //        //（8）在监听函数里获取车站输入框中的文本
 //        //（9）调用方法查询
-        tv_cz=(TextView) findViewById(R.id.autoinput_czcx_zc);
-        input=tv_cz.getText().toString();
+//        tv_cz=(TextView) findViewById(R.id.autoinput_czcx_zc);
+//        input=tv_cz.getText().toString();
+
+        application= (MyApplication)this.getApplication();
+        String[] str={};//获取数据库中所有的车站
+        str=(String[])application.getDao().getStationList().toArray(new String[0]);
+
+        //获取输入框中的字符
+        String cz_child=autoinput_czcx_zc.getText().toString();
+        String[] cz_match=application.Match(str,cz_child);
+        ArrayAdapter<String> cz_adapter=new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,cz_match);
+        autoinput_czcx_zc.setAdapter(cz_adapter);
+
+
+
+
         result=null;
         bt_query.setOnClickListener(new View.OnClickListener() {
             @Override
