@@ -83,15 +83,18 @@ public class cccxActivity extends Activity {
             public void onClick(View view) {
                 //todo:查询
                 result=application.getDao().getStationArrayList(application.getDao().getBusIdByName(cccx_cc));
+                String[] result1=(String[])result.toArray();
+                result1=new String[]{"a1,b1,c2","a2,s2,d3","s2,d2,e3"};
                 //        //（10）如果查询结果为空，则应有无输出信息提示
                 //        //（11）这时发toast信息提醒用户
                 //        //（12）否则查询结果不为空
                 //        //（13）切换到查询结果界面，由listview界面输出结果
-                if(result==null){
+                if(result1==null){
                     Toast toast = Toast.makeText(cccxActivity.this, "没有查询结果", Toast.LENGTH_SHORT);
                     toast.show();
                 }else{
-                    Intent intent = new Intent(cccxActivity.this,zzcxjgActivity.class);
+                    Intent intent = new Intent(cccxActivity.this,cccxjgActivity.class);
+                    intent.putExtra("result1",result1);
                     startActivity(intent);
                 }
 //

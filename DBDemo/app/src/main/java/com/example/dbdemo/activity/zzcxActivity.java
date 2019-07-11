@@ -101,7 +101,7 @@ public class zzcxActivity extends Activity {
             public void onClick(View view) {
                 //todo:查询
                 result=new String[]{"a1,b1,c2","a2,s2,d3","s2,d2,e3"};
-//                result=application.findPathDirectly(startStation,endStation);
+//                result=(String[]) application.findPathDirectly(startStation,endStation).toArray();
                 if(result==null){
                     Toast toast = Toast.makeText(zzcxActivity.this, "没有查询结果", Toast.LENGTH_SHORT);
                     toast.show();

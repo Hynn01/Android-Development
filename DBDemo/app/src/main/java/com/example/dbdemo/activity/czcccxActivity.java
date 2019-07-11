@@ -85,14 +85,17 @@ public class czcccxActivity extends Activity {
                 //todo:查询
                 int back=application.getDao().getStationIdByName(czcx_zc);
                 result=application.getDao().getBusArrayList(back);
+                String[] result1=(String[])result.toArray();
+                result1=new String[]{"a1,b1,c2","a2,s2,d3","s2,d2,e3"};
                 //        //（10）如果查询结果为空
 //        //（11）发toast消息提醒
 //        //（12）否则切换到结果listview界面
-                if(result==null){
+                if(result1==null){
                     Toast toast = Toast.makeText(czcccxActivity.this, "没有查询结果", Toast.LENGTH_SHORT);
                     toast.show();
                 }else{
-                    Intent intent = new Intent(czcccxActivity.this,zzcxjgActivity.class);
+                    Intent intent = new Intent(czcccxActivity.this,czcxjgActivity.class);
+                    intent.putExtra("result1",result1);
                     startActivity(intent);
                 }
 

@@ -26,7 +26,7 @@ public class zzcxjgActivity extends Activity {
         //todo:放一个listview
         ListView listView = (ListView)findViewById(R.id.list_zzcxjg);
         //获取返回结果
-        Intent i = new Intent();
+        Intent i = getIntent();
         //result=new String[]{"a1,b1,c2","a2,s2,d3","s2,d2,e3"};
         result=i.getStringArrayExtra("result");
         //result=new zzcxActivity()
