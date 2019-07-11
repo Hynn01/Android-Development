@@ -120,10 +120,9 @@
             <AutoCompleteTextView
                 android:id="@+id/tv_start"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:background="@null"
                 android:hint="请输入起始站名" />
-
 
         </LinearLayout>
 
@@ -146,9 +145,11 @@
             <AutoCompleteTextView
                 android:id="@+id/tv_end"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:background="@null"
-                android:hint="请输入终点站名" />
+                android:hint="请输入终点站名"
+                android:paddingLeft="2dp"
+                android:textSize="20sp" />
         </LinearLayout>
     </LinearLayout>
 

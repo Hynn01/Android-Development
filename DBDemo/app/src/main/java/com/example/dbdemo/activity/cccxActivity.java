@@ -28,7 +28,7 @@ public class cccxActivity extends Activity {
     private MyApplication application;//数据库操作
     private AutoCompleteTextView autoinput_cccx_cc;
     ArrayList<Station> result;//返回结果
-
+    String input;//输入
     //（1）车次查询模块goTocccxView()
     //（2）切换到车次查询界面
     //    用setContentView（）
@@ -58,12 +58,9 @@ public class cccxActivity extends Activity {
 //        //（7）在监听函数中拿到车次输入框的引用
 //        //（8）从引用中由文本框获取文本
 //        //（9）根据输入的信息查询结果
-<<<<<<< HEAD
 
-=======
         autoinput_cccx_cc=findViewById(R.id.autoinput_cccx_cc);
         input=autoinput_cccx_cc.getText().toString();
->>>>>>> ff3c1afd81dad45c260527f3e878cbeecd96fff3
         result=null;
         application= (MyApplication)this.getApplication();
 
