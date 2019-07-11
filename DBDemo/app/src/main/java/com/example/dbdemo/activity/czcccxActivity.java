@@ -27,11 +27,12 @@ public class czcccxActivity extends Activity {
 
     private Button bt_query;
     private ImageButton bt_back;
+   // private TextView tv_cz;//车次
     private MyApplication application;//数据库操作
     private AutoCompleteTextView autoinput_czcx_zc;
 
     ArrayList<Bus> result;//返回结果
-    //String input;//输入
+    String input;//输入
     //（1）车站查询，goToczcccxView()
     //（2）切换到车站查询界面
     //    用setContentView（）
@@ -62,30 +63,20 @@ public class czcccxActivity extends Activity {
 //        //（7）为查询按钮添加监听
 //        //（8）在监听函数里获取车站输入框中的文本
 //        //（9）调用方法查询
-<<<<<<< HEAD
-
-
-        application= (MyApplication)this.getApplication();
-        autoinput_czcx_zc=(AutoCompleteTextView) findViewById(R.id.autoinput_czcx_zc);
-=======
-        autoinput_czcx_zc=findViewById(R.id.autoinput_czcx_zc);
+        autoinput_czcx_zc= findViewById(R.id.autoinput_czcx_zc);
         input=autoinput_czcx_zc.getText().toString();
 
         application= (MyApplication)this.getApplication();
         String[] str={};//获取数据库中所有的车站
-        str=(String[])application.getDao().getStationNameList().toArray(new String[0]);
->>>>>>> ff3c1afd81dad45c260527f3e878cbeecd96fff3
+        str=(String[])application.getDao().getStationList().toArray(new String[0]);
 
-        String[] str={};//获取数据库中所有的车站
-        str=(String[])application.getDao().getStationNameList().toArray(new String[0]);
-//
         //获取输入框中的字符
         String cz_child=autoinput_czcx_zc.getText().toString();
         String[] cz_match=application.Match(str,cz_child);
         ArrayAdapter<String> cz_adapter=new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,cz_match);
         autoinput_czcx_zc.setAdapter(cz_adapter);
 
-        final String czcx_zc=autoinput_czcx_zc.getText().toString();
+
 
 
         result=null;
@@ -93,7 +84,7 @@ public class czcccxActivity extends Activity {
             @Override
             public void onClick(View view) {
                 //todo:查询
-                int back=application.getDao().getStationIdByName(czcx_zc);
+                int back=application.getDao().getStationIdByName(input);
                 result=application.getDao().getBusArrayList(back);
                 //        //（10）如果查询结果为空
 //        //（11）发toast消息提醒
