@@ -65,7 +65,6 @@ public class MyApplication extends Application {
 
     }
     //增加记录后要修改stations 和 buses
-
     //寻路方法1
     public ArrayList<String> findPathDirectly(String start , String end){
         int u = repo.getStationIdByName(start);

@@ -183,9 +183,20 @@ public class Repo {
         }
         cursor.close();
         return stationList;
-
     }
+
+    public ArrayList<String> getStationNameList(){
+        ArrayList<HashMap<String,String>> arrayList= getStationList();
+        ArrayList<String> stationList = new ArrayList<String>();
+        for (HashMap<String,String> a:arrayList) {
+            stationList.add(a.get("name"));
+        }
+        System.out.println("sl:"+stationList);
+        return stationList;
+    }
+
     public ArrayList<HashMap<String, String>> getTranceposList(){
+
         String selectQuery = "SELECT "+
                 Trancepos.KEY_ID+","+
                 Trancepos.KEY_bus+","+

@@ -100,6 +100,7 @@ public class cztjActivity extends Activity {
 //                        }else{
                             Toast toast = Toast.makeText(cztjActivity.this,"车站添加成功",Toast.LENGTH_SHORT);
                             toast.show();
+                            //app.getDao().getStationNameList();
 //                        }
 
                     }
