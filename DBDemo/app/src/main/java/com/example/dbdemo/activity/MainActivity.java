@@ -6,6 +6,10 @@ import android.app.Activity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+
+import com.example.dbdemo.MyApplication;
+import com.example.dbdemo.entity.Bus;
+import com.example.dbdemo.entity.Station;
 import com.youth.banner.Banner;
 
 import com.example.dbdemo.R;
@@ -22,8 +26,19 @@ public class MainActivity extends Activity {
     private ImageButton bt_czcx;
     private ImageButton bt_tjgn;
 
+    MyApplication app;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        app=(MyApplication) this.getApplication();
+        //先清空
+//        app.getDao().getDbHelper().onUpgrade(app.getDao().getDb() , 3 ,4);
+//        Bus bus = new Bus();
+//        bus.name = "a";
+//        app.getDao().insertBus(bus);
+//        Station station = new Station();
+//        station.name = "cuc";
 
         //（1）一开始进入莱单界面方法就是goToMainMenu()函数
         //（2）切换到莱单界面 使用setContentView（）

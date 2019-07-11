@@ -69,6 +69,7 @@ public class cctjActivity extends Activity {
         et_zdz=(EditText)findViewById(R.id.autoinput_cctj_zdz);
 
 
+
         //（8）为添加按钮添加监听器
         bt_add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,19 +78,28 @@ public class cctjActivity extends Activity {
                 //（13）取出相应的文本
                 String cc=et_cc.getText().toString();
                 String cx=et_cx.getText().toString();
-                String qsz=et_cx.getText().toString();
-                String zdz=et_cx.getText().toString();
+                String qsz=et_qsz.getText().toString();
+                String zdz=et_zdz.getText().toString();
+
+                System.out.println("cc:"+cc);
+                System.out.println("cx:"+cx);
+                System.out.println("qsz:"+qsz);
+                System.out.println("zdz:"+zdz);
+
+                boolean null_flag=false;
+
+                if(cc=="" || cx=="" || qsz=="" || zdz==""){
+                    Toast toast = Toast.makeText(cctjActivity.this,"有未填的项，请填写完整",Toast.LENGTH_SHORT);
+                    toast.show();
+                    null_flag=true;
+                }
 
                 //（14）查询是否有该列车的数据库语句并进行查询
                 //（15）如果有车则发toast信息提示返回
                 int bus_id=app.getDao().getBusIdByName(cc);
-                boolean bus_exist=app.getDao().busIsExistById(bus_id);
-//                if(bus_exist==true){
-//                    Toast toast = Toast.makeText(cctjActivity.this,"车次存在，请重新输入",Toast.LENGTH_SHORT);
-//                    toast.show();
-//                }
-
-                if(bus_id!=0){
+//                boolean bus_exist=app.getDao().busIsExistById(bus_id);
+                boolean bus_exist=app.getDao().busIsExistByName(cc);
+                if(bus_exist==true){
                     Toast toast = Toast.makeText(cctjActivity.this,"车次存在，请重新输入",Toast.LENGTH_SHORT);
                     toast.show();
                 }
@@ -97,12 +107,9 @@ public class cctjActivity extends Activity {
                 //（16）查询是否有该始发站数据库语句并进行查询
                 //（17）如果没有则发toast信息提示返回
                 int start_station_id=app.getDao().getStationIdByName(qsz);
-                boolean start_station_exist=app.getDao().stationIsExistById(start_station_id);
-//                if(start_station_exist==false){
-//                    Toast toast = Toast.makeText(cctjActivity.this,"起始车站不存在，请重新输入",Toast.LENGTH_SHORT);
-//                    toast.show();
-//                }
-                if(start_station_id==0){
+//                boolean start_station_exist=app.getDao().stationIsExistById(start_station_id);
+                boolean start_station_exist=app.getDao().stationIsExistByName(qsz);
+                if(start_station_exist==false){
                     Toast toast = Toast.makeText(cctjActivity.this,"起始车站不存在，请重新输入",Toast.LENGTH_SHORT);
                     toast.show();
                 }
@@ -110,7 +117,8 @@ public class cctjActivity extends Activity {
                 //（18）查询是否有该终点站的数据库语句并进行查询
                 //（19）如果没有则发toast信息提示返回
                 int end_station_id=app.getDao().getStationIdByName(zdz);
-                boolean end_station_exist=app.getDao().stationIsExistById(start_station_id);
+//                boolean end_station_exist=app.getDao().stationIsExistById(end_station_id);
+                boolean end_station_exist=app.getDao().stationIsExistByName(zdz);
                 if(end_station_exist==false){
                     Toast toast = Toast.makeText(cctjActivity.this,"终点车站不存在，请重新输入",Toast.LENGTH_SHORT);
                     toast.show();
@@ -119,10 +127,12 @@ public class cctjActivity extends Activity {
                 //（20）插入用户需要添加的列车
                 //（21）如果添加失败
                 //（22）发toast消息提醒用户
-                if(bus_exist==false && start_station_exist==true && end_station_exist==true){
+                if(bus_exist==false && start_station_exist==true && end_station_exist==true && null_flag==false){
                     Bus bus=new Bus(cc,cx,start_station_id,end_station_id);
+                    app.getDao().insertBus(bus);
                     Toast toast = Toast.makeText(cctjActivity.this,"车次添加成功",Toast.LENGTH_SHORT);
                     toast.show();
+                    System.out.println("aaaaa:"+app.getDao().getBusById1(1));
                 }
 
 

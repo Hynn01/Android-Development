@@ -31,6 +31,8 @@ public class Repo {
         values.put(Bus.KEY_terminus,bus.terminus);
         values.put(Bus.KEY_type,bus.type);
 
+        System.out.println("bbbb:"+bus);
+
         long bus_ID = db.insert(Bus.TABLE,null,values);
         return (int)bus_ID;
     }
@@ -197,7 +199,7 @@ public class Repo {
         if(cursor.moveToFirst()){
             do{
                 HashMap<String,String> trancepos = new HashMap<String,String>();
-                trancepos.put("id",cursor.getString(cursor.getColumnIndex(Trancepos.KEY_ID)));
+                trancepos.put("station_Id",cursor.getString(cursor.getColumnIndex(Trancepos.KEY_station)));
                 trancepos.put("bus_Id",cursor.getString(cursor.getColumnIndex(Trancepos.KEY_bus)));
                 tranceposList.add(trancepos);
             }while(cursor.moveToNext());
@@ -357,12 +359,25 @@ public class Repo {
         ArrayList<HashMap<String, String>> busList = getBusList();
         Iterator<HashMap<String, String>> it = busList.iterator();
         while (it.hasNext()){
-            if(String.valueOf(bus_id).equals(it.next().get("bus_Id"))){
+            if(String.valueOf(bus_id).equals(it.next().get("id"))){
                 return true;
             }
         }
         return false;
     }
+
+    //判断记录是否存在
+    public boolean busIsExistByName(String bus_name){
+        ArrayList<HashMap<String, String>> busList = getBusList();
+        Iterator<HashMap<String, String>> it = busList.iterator();
+        while (it.hasNext()){
+            if(bus_name.equals(it.next().get("name"))){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public boolean stationIsExistById(int station_id){
         ArrayList<HashMap<String, String>> stationList = getStationList();
         Iterator<HashMap<String, String>> it = stationList.iterator();
@@ -373,6 +388,18 @@ public class Repo {
         }
         return false;
     }
+
+    public boolean stationIsExistByName(String station_name){
+        ArrayList<HashMap<String, String>> stationList = getStationList();
+        Iterator<HashMap<String, String>> it = stationList.iterator();
+        while (it.hasNext()){
+            if(station_name.equals(it.next().get("name"))){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public boolean tranceposIsExistById(int trancepos_id){
         ArrayList<HashMap<String, String>> tranceposList = getTranceposList();
         Iterator<HashMap<String, String>> it = tranceposList.iterator();
@@ -381,6 +408,23 @@ public class Repo {
                 return true;
             }
         }
+        return false;
+    }
+
+    public boolean tranceposIsExistByName(String bus_name,String station_name){
+        ArrayList<HashMap<String, String>> tranceposList = getTranceposList();
+        Iterator<HashMap<String, String>> it = tranceposList.iterator();
+        while (it.hasNext()){
+            HashMap<String, String> trans = it.next();
+            System.out.println("trans:"+trans);
+            System.out.println("String.valueOf(getBusIdByName(bus_name)):"+String.valueOf(getBusIdByName(bus_name)));
+            System.out.println("String.valueOf(getStationIdByName(station_name)):"+String.valueOf(getStationIdByName(station_name)));
+            if(String.valueOf(getBusIdByName(bus_name)).equals(trans.get("bus_Id"))&&String.valueOf(getStationIdByName(station_name)).equals(trans.get("station_Id"))){
+                System.out.println("true");
+                return true;
+            }
+        }
+        System.out.println("false");
         return false;
     }
 

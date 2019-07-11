@@ -83,14 +83,14 @@ public class gxtjActivity extends Activity {
                 //（20）有则取出其对应结果
                 //（21）否则发消息提醒用户，无该车
                 int station_id=app.getDao().getStationIdByName(zm);
-                boolean station_exist=app.getDao().stationIsExistById(station_id);
+                boolean station_exist=app.getDao().stationIsExistByName(zm);
                 if(station_exist==false){
                     Toast toast = Toast.makeText(gxtjActivity.this,"无该车站，请重新输入",Toast.LENGTH_SHORT);
                     toast.show();
                 }
 
                 int bus_id=app.getDao().getBusIdByName(cc);
-                boolean bus_exist=app.getDao().stationIsExistById(bus_id);
+                boolean bus_exist=app.getDao().busIsExistByName(cc);
                 if(bus_exist==false){
                     Toast toast = Toast.makeText(gxtjActivity.this,"无该车次，请重新输入",Toast.LENGTH_SHORT);
                     toast.show();
@@ -100,7 +100,12 @@ public class gxtjActivity extends Activity {
                 //（24）具体的插入相应数据库数据
                 //（25）如果插入失败，发消息提醒用户
                 //（26）否则为插入成功
-                if(station_exist==true&&bus_exist==true){
+                boolean trancepos_exist=app.getDao().tranceposIsExistByName(cc,zm);
+                if(trancepos_exist==true){
+                    Toast toast = Toast.makeText(gxtjActivity.this,"关系已存在",Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+                if(station_exist==true&&bus_exist==true&&trancepos_exist==false){
                     Trancepos trancepos=new Trancepos(bus_id,station_id);
                     app.getDao().insertTrancepos(trancepos);
                     Toast toast = Toast.makeText(gxtjActivity.this,"关系添加成功",Toast.LENGTH_SHORT);

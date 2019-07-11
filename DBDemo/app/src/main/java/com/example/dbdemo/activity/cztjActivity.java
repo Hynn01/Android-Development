@@ -68,6 +68,8 @@ public class cztjActivity extends Activity {
                 //（11）简称文本
                 String station_name=et_station.getText().toString();
                 String station_sim=et_abbreviation.getText().toString();
+                System.out.println(station_name);
+                System.out.println(station_sim);
 
                 //（7）如果输入框为空，则返回
                 //（12）查看简称文本是否只有字母

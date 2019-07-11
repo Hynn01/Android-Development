@@ -28,6 +28,10 @@ public class Bus {
     }
 
     public Bus(String name,String type,int oStation,int terminus){
+        this.name=name;
+        this.type=type;
+        this.oStation=oStation;
+        this.terminus=terminus;
         stations = new ArrayList<Station>();
     }
     public void addStation(Station station){
