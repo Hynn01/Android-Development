@@ -27,7 +27,7 @@ public class zzcxActivity extends Activity {
     private AutoCompleteTextView tv_start;
     private AutoCompleteTextView tv_end;
     private MyApplication application;//数据库操作
-    ArrayList<String> result;//返回结果
+    String[] result;//返回结果
     //（1）站站查询goTozzcxView()
     //（2）切换到站站查询界面
     //    用setContentView（）
@@ -66,7 +66,7 @@ public class zzcxActivity extends Activity {
 //        //（8）为终点站文本框添加适配器
 //        // //（9）中转站CheckBox引用
         String[] str={};//获取数据库中所有的车站
-        str=(String[])application.getDao().getStationList().toArray(new String[0]);
+        str=(String[])application.getDao().getStationNameList().toArray(new String[0]);
 
         //获取输入框中的字符
         String start_child=tv_start.getText().toString();
@@ -100,12 +100,14 @@ public class zzcxActivity extends Activity {
             @Override
             public void onClick(View view) {
                 //todo:查询
-                result=application.findPathDirectly(startStation,endStation);
+                result=new String[]{"a1,b1,c2","a2,s2,d3","s2,d2,e3"};
+//                result=application.findPathDirectly(startStation,endStation);
                 if(result==null){
                     Toast toast = Toast.makeText(zzcxActivity.this, "没有查询结果", Toast.LENGTH_SHORT);
                     toast.show();
                 }else{
                     Intent intent = new Intent(zzcxActivity.this,zzcxjgActivity.class);
+                    intent.putExtra("result",result);
                     startActivity(intent);
                 }
 
@@ -124,10 +126,4 @@ public class zzcxActivity extends Activity {
             }
         });
     }
-    public ArrayList<String> getResult(){
-        return result;
-    }
-
-
-
 }

@@ -65,7 +65,7 @@ public class cccxActivity extends Activity {
         result=null;
         application= (MyApplication)this.getApplication();
         String[] str={};//获取数据库中所有的车次
-        str=(String[])application.getDao().getBusList().toArray(new String[0]);
+        str=(String[])application.getDao().getBusNameList().toArray(new String[0]);
 
         //获取输入框中的字符
         String cc_child=autoinput_cccx_cc.getText().toString();

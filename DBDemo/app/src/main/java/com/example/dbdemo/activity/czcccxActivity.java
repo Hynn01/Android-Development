@@ -68,7 +68,7 @@ public class czcccxActivity extends Activity {
 
         application= (MyApplication)this.getApplication();
         String[] str={};//获取数据库中所有的车站
-        str=(String[])application.getDao().getStationList().toArray(new String[0]);
+        str=(String[])application.getDao().getStationNameList().toArray(new String[0]);
 
         //获取输入框中的字符
         String cz_child=autoinput_czcx_zc.getText().toString();
