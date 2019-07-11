@@ -1,6 +1,7 @@
 package com.example.dbdemo.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -25,7 +26,9 @@ public class zzcxjgActivity extends Activity {
         //todo:放一个listview
         ListView listView = (ListView)findViewById(R.id.list_zzcxjg);
         //获取返回结果
-        result=new String[]{"a1,b1,c2","a2,s2,d3","s2,d2,e3"};
+        Intent i = new Intent();
+        //result=new String[]{"a1,b1,c2","a2,s2,d3","s2,d2,e3"};
+        result=i.getStringArrayExtra("result");
         //result=new zzcxActivity()
         //建立ListView对应的适配器
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,result);

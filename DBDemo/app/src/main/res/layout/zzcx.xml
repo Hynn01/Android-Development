@@ -122,7 +122,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@null"
+<<<<<<< HEAD
                 android:hint="请输入起始站名" />
+=======
+                android:hint="请输入起始站名"
+                android:paddingLeft="2dp"
+                android:textSize="20sp" />
+>>>>>>> ff3c1afd81dad45c260527f3e878cbeecd96fff3
         </LinearLayout>
 
         <LinearLayout
