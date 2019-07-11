@@ -66,7 +66,7 @@ public class zzcxActivity extends Activity {
 //        //（8）为终点站文本框添加适配器
 //        // //（9）中转站CheckBox引用
         String[] str={};//获取数据库中所有的车站
-        str=(String[])application.getDao().getStationList().toArray(new String[0]);
+        str=(String[])application.getDao().getStationNameList().toArray(new String[0]);
 
         //获取输入框中的字符
         String start_child=tv_start.getText().toString();

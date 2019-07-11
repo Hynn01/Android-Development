@@ -195,6 +195,17 @@ public class Repo {
         return stationList;
     }
 
+    public ArrayList<String> getBusNameList(){
+        ArrayList<HashMap<String,String>> arrayList= getBusList();
+        ArrayList<String> busList = new ArrayList<String>();
+        for (HashMap<String,String> a:arrayList) {
+            busList.add(a.get("name"));
+        }
+        System.out.println("sl:"+busList);
+        return busList;
+    }
+
+
     public ArrayList<HashMap<String, String>> getTranceposList(){
 
         String selectQuery = "SELECT "+

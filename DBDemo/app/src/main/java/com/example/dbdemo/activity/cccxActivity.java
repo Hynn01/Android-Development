@@ -25,11 +25,9 @@ public class cccxActivity extends Activity {
 
     private Button bt_query;
     private ImageButton bt_back;
-    //private TextView tv_cc;//车次
     private MyApplication application;//数据库操作
     private AutoCompleteTextView autoinput_cccx_cc;
     ArrayList<Station> result;//返回结果
-    String input;//输入
 
     //（1）车次查询模块goTocccxView()
     //（2）切换到车次查询界面
@@ -60,12 +58,14 @@ public class cccxActivity extends Activity {
 //        //（7）在监听函数中拿到车次输入框的引用
 //        //（8）从引用中由文本框获取文本
 //        //（9）根据输入的信息查询结果
-//        tv_cc=(TextView) findViewById(R.id.autoinput_cccx_cc);
-//        input=tv_cc.getText().toString();
+
         result=null;
         application= (MyApplication)this.getApplication();
+
+        autoinput_cccx_cc=(AutoCompleteTextView) findViewById(R.id.autoinput_cccx_cc);
+
         String[] str={};//获取数据库中所有的车次
-        str=(String[])application.getDao().getBusList().toArray(new String[0]);
+        str=(String[])application.getDao().getBusNameList().toArray(new String[0]);
 
         //获取输入框中的字符
         String cc_child=autoinput_cccx_cc.getText().toString();
@@ -73,11 +73,14 @@ public class cccxActivity extends Activity {
         ArrayAdapter<String> cc_adapter=new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,cc_match);
         autoinput_cccx_cc.setAdapter(cc_adapter);
 
+        final String  cccx_cc=autoinput_cccx_cc.getText().toString();
+
+
         bt_query.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //todo:查询
-                result=application.getDao().getStationArrayList(application.getDao().getBusIdByName(input));
+                result=application.getDao().getStationArrayList(application.getDao().getBusIdByName(cccx_cc));
                 //        //（10）如果查询结果为空，则应有无输出信息提示
                 //        //（11）这时发toast信息提醒用户
                 //        //（12）否则查询结果不为空
