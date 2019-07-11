@@ -60,8 +60,8 @@ public class cccxActivity extends Activity {
 //        //（7）在监听函数中拿到车次输入框的引用
 //        //（8）从引用中由文本框获取文本
 //        //（9）根据输入的信息查询结果
-//        tv_cc=(TextView) findViewById(R.id.autoinput_cccx_cc);
-//        input=tv_cc.getText().toString();
+        autoinput_cccx_cc=findViewById(R.id.autoinput_cccx_cc);
+        input=autoinput_cccx_cc.getText().toString();
         result=null;
         application= (MyApplication)this.getApplication();
         String[] str={};//获取数据库中所有的车次

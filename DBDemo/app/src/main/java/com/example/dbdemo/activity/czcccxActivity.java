@@ -63,8 +63,8 @@ public class czcccxActivity extends Activity {
 //        //（7）为查询按钮添加监听
 //        //（8）在监听函数里获取车站输入框中的文本
 //        //（9）调用方法查询
-//        tv_cz=(TextView) findViewById(R.id.autoinput_czcx_zc);
-//        input=tv_cz.getText().toString();
+        autoinput_czcx_zc=findViewById(R.id.autoinput_czcx_zc);
+        input=autoinput_czcx_zc.getText().toString();
 
         application= (MyApplication)this.getApplication();
         String[] str={};//获取数据库中所有的车站
