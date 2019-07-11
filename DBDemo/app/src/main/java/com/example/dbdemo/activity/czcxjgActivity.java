@@ -9,20 +9,23 @@ import android.widget.ListView;
 
 import com.example.dbdemo.R;
 
-//站站查询结果
+//车站查询结果
 public class czcxjgActivity extends Activity {
     private String[] result;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.czcxjg);
-        //todo:放一个listview
+
         ListView listView = (ListView)findViewById(R.id.list_czcxjg);
+        //初始化result
+        result=new String[]{};
         //获取返回结果
         Intent i = getIntent();
         result=i.getStringArrayExtra("result1");
-//        result=new String[]{"a1,b1,c2","a2,s2,d3","s2,d2,e3"};
-        //result=new zzcxActivity()
+        //result=new String[]{"a1,b1,c2","a2,s2,d3","s2,d2,e3"};
+
         //建立ListView对应的适配器
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,result);
         listView.setAdapter(adapter);

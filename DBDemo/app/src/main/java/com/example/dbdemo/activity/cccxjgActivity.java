@@ -9,7 +9,7 @@ import android.widget.ListView;
 
 import com.example.dbdemo.R;
 
-//站站查询结果
+//车次查询结果
 public class cccxjgActivity extends Activity {
     private String[] result;
     @Override
@@ -22,7 +22,7 @@ public class cccxjgActivity extends Activity {
         Intent i = getIntent();
         //result=new String[]{"a1,b1,c2","a2,s2,d3","s2,d2,e3"};
         result=i.getStringArrayExtra("result1");
-//        result=new String[]{"a1,b1,c2","a2,s2,d3","s2,d2,e3"};
+        result=new String[]{"a1,b1,c2","a2,s2,d3","s2,d2,e3"};
         //result=new zzcxActivity()
         //建立ListView对应的适配器
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,result);

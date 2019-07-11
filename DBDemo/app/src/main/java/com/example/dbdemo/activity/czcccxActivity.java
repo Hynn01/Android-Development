@@ -21,7 +21,7 @@ import com.example.dbdemo.dao.*;
 import java.util.ArrayList;
 import java.util.List;
 
-//去车站所有车次查询
+//车站查询（这个车站有哪些车次）
 public class czcccxActivity extends Activity {
 
 
@@ -70,34 +70,37 @@ public class czcccxActivity extends Activity {
         str=(String[])application.getDao().getStationNameList().toArray(new String[0]);
 
         //获取输入框中的字符
-        String cz_child=autoinput_czcx_zc.getText().toString();
-        String[] cz_match=application.Match(str,cz_child);
+        final String cz_child=autoinput_czcx_zc.getText().toString();
+        final String[] cz_match=application.Match(str,cz_child);
         ArrayAdapter<String> cz_adapter=new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,cz_match);
         autoinput_czcx_zc.setAdapter(cz_adapter);
-
-
-        final String  czcx_zc=autoinput_czcx_zc.getText().toString();
-
 
         bt_query.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //todo:查询
-                int back=application.getDao().getStationIdByName(czcx_zc);
-                result=application.getDao().getBusArrayList(back);
-                String[] result1=(String[])result.toArray();
-                result1=new String[]{"a1,b1,c2","a2,s2,d3","s2,d2,e3"};
-                //        //（10）如果查询结果为空
-//        //（11）发toast消息提醒
-//        //（12）否则切换到结果listview界面
-                if(result1==null){
-                    Toast toast = Toast.makeText(czcccxActivity.this, "没有查询结果", Toast.LENGTH_SHORT);
-                    toast.show();
-                }else{
-                    Intent intent = new Intent(czcccxActivity.this,czcxjgActivity.class);
-                    intent.putExtra("result1",result1);
-                    startActivity(intent);
-                }
+
+                final String czcx_zc=autoinput_czcx_zc.getText().toString();
+                int station_id=application.getDao().getStationIdByName(czcx_zc);
+                System.out.println("cz_child:"+cz_child);
+                System.out.println("cz_match:"+cz_match);
+                System.out.println("czcx_zc:"+czcx_zc);
+                System.out.println("station_id:"+station_id);
+                result=application.getDao().getBusArrayList(station_id);
+                System.out.println("bus_result:"+result);
+                //String[] result1=(String[])result.toArray();
+                //String[] result1=new String[]{"a1,b1,c2","a2,s2,d3","s2,d2,e3"};
+
+                //（10）如果查询结果为空
+                //（11）发toast消息提醒
+                //（12）否则切换到结果listview界面
+//                if(result1==null){
+//                    Toast toast = Toast.makeText(czcccxActivity.this, "没有查询结果", Toast.LENGTH_SHORT);
+//                    toast.show();
+//                }else{
+//                    Intent intent = new Intent(czcccxActivity.this,czcxjgActivity.class);
+//                    intent.putExtra("result1",result1);
+//                    startActivity(intent);
+//                }
 
             }
         });
