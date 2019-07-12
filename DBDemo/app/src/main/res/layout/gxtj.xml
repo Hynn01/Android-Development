@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:id="@+id/first_rel"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true">
+
+        <!--//关系添加-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/gctj_title"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="80dp"-->
+            <!--android:layout_centerInParent="true"-->
+            <!--android:gravity="center"-->
+            <!--android:textColor="#000000"-->
+            <!--android:textSize="20sp"-->
+            <!--tools:text="车站车次关系添加" />-->
+
+        <!--&lt;!&ndash;//"返回"图片按钮&ndash;&gt;-->
+
+        <!--<ImageButton-->
+            <!--android:id="@+id/back_gctj"-->
+            <!--android:layout_width="50dp"-->
+            <!--android:layout_height="50dp"-->
+            <!--android:layout_marginLeft="5dp"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:layout_marginRight="37dp"-->
+            <!--android:layout_toLeftOf="@id/gctj_title"-->
+            <!--android:background="#00FFFFFF"-->
+            <!--android:src="@android:drawable/ic_menu_revert" />-->
+        <!--//车次添加-->
+
+        <TextView
+            android:id="@+id/cctj_title"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:textColor="#020202"
+            android:textSize="20sp"
+            android:text="关系添加" />
+
+        <!--//"返回"图片按钮-->
+
+        <ImageButton
+            android:id="@+id/bt_back"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="83dp"
+            android:layout_toLeftOf="@id/cctj_title"
+            android:background="#00FFFFFF"
+            android:src="@android:drawable/ic_menu_revert" />
+
+    </RelativeLayout>
+    <!--广告轮播-->
+    <RelativeLayout
+        android:id="@+id/second_rel"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_below="@id/first_rel">
+
+        <com.youth.banner.Banner
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/banner"
+            android:layout_width="match_parent"
+            android:layout_height="250dp" />
+
+    </RelativeLayout>
+    <!--<RelativeLayout-->
+        <!--android:id="@+id/second_rel"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="250dp"-->
+        <!--android:layout_below="@id/first_rel">-->
+
+        <!--<android.support.v4.view.ViewPager-->
+            <!--android:id="@+id/viewPager"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent" />-->
+
+        <!--<LinearLayout android:id="@+id/dotLayout"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:padding="8dp"-->
+            <!--android:gravity="right"-->
+            <!--android:orientation="horizontal">    //默认情况下面的点-->
+
+            <!--<View-->
+                <!--android:id="@+id/v_dot1"-->
+                <!--android:layout_width="8dp"-->
+                <!--android:layout_height="8dp"-->
+                <!--android:background="@drawable/dot_focus" />-->
+
+            <!--<View-->
+                <!--android:id="@+id/v_dot2"-->
+                <!--android:layout_width="8dp"-->
+                <!--android:layout_height="8dp"-->
+                <!--android:layout_marginLeft="5dp"-->
+                <!--android:background="@drawable/dot_blur" />-->
+
+        <!--</LinearLayout>-->
+
+
+    <!--</RelativeLayout>-->
+
+
+    <LinearLayout
+        android:id="@+id/third_rel"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/second_rel"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/blackOutLayoutNumber1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="left|center_horizontal"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="车次:"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/autoinput_gxtj_cc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="请输入车次" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/blackOutLayoutNumber2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="left|center_horizontal"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="站名:"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/autoinput_gxtj_zm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="请输入站名" />
+        </LinearLayout>
+
+        <!--<LinearLayout-->
+            <!--android:id="@+id/blackOutLayoutNumber3"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="50dp"-->
+            <!--android:gravity="left|center_horizontal"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:paddingLeft="10dp"-->
+            <!--android:paddingTop="0dp"-->
+            <!--android:paddingBottom="0dp">-->
+
+            <!--<TextView-->
+                <!--android:layout_width="100dp"-->
+                <!--android:layout_height="50dp"-->
+                <!--android:text="站次:"-->
+                <!--android:textSize="20sp" />-->
+
+            <!--<EditText-->
+                <!--android:id="@+id/autoinput_gxtj_zc"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:background="@null"-->
+                <!--android:hint="请输入站次" />-->
+        <!--</LinearLayout>-->
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/bt_add"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:scaleType="fitCenter"
+        android:text="添加"
+        android:textSize="20sp" />
+</LinearLayout>

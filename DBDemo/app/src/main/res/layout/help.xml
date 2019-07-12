@@ -9,9 +9,8 @@
     <RelativeLayout
         android:id="@+id/first_rel"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:layout_alignParentTop="true">
-
 
 
         <TextView
@@ -21,18 +20,18 @@
             android:layout_centerInParent="true"
             android:gravity="center"
             android:textColor="#000000"
-            android:textSize="30sp"
-            tools:text="帮助" />
+            android:textSize="20sp"
+            android:text="帮助" />
 
         <!--//"返回"图片按钮-->
 
         <ImageButton
-            android:id="@+id/back_help"
+            android:id="@+id/bt_back"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
-            android:layout_marginRight="40dp"
+            android:layout_marginRight="113dp"
             android:layout_toLeftOf="@id/help_title"
             android:background="#00FFFFFF"
             android:src="@android:drawable/ic_menu_revert" />
@@ -126,7 +125,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:text="车站功能介绍"
+            android:text="车站查询功能介绍"
             android:textSize="20sp" />
         <TextView
             android:id="@+id/textView4"

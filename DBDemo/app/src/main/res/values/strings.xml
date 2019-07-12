@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DBDemo</string>
+    <string name="app_name">Bus Helper</string>
     <string name="main_title">北京公交查询助手</string>
     <string name="title_activity_czcxjgctivity">czcxjgctivity</string>
 </resources>

@@ -87,6 +87,18 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" />
+
+        <activity
+            android:name=".activity.czcxjgActivity"
+            android:label="DBDemo"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" />
+
+        <activity
+            android:name=".activity.cccxjgActivity"
+            android:label="DBDemo"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" />
     </application>
 
 </manifest>

@@ -13,7 +13,7 @@
         android:layout_height="60dp"
         android:layout_alignParentTop="true">
 
-        //站站查询
+        <!--//车次添加-->
 
         <TextView
             android:id="@+id/cctj_title"
@@ -22,13 +22,13 @@
             android:layout_centerInParent="true"
             android:gravity="center"
             android:textColor="#020202"
-            android:textSize="30sp"
-            tools:text="车站添加" />
+            android:textSize="20sp"
+            android:text="车次添加" />
 
-        //"返回"图片按钮
+        <!--//"返回"图片按钮-->
 
         <ImageButton
-            android:id="@+id/back_cztj"
+            android:id="@+id/bt_back"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="5dp"
@@ -122,14 +122,11 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/blackOutNumber1"
+                android:id="@+id/autoinput_cctj_cc"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:background="@null"
-                android:hint="请输入车次"
-                android:inputType="number"
-                android:paddingLeft="2dp"
-                android:textSize="20sp" />
+                android:hint="请输入车次" />
         </LinearLayout>
 
         <LinearLayout
@@ -149,14 +146,11 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/blackOutNumber2"
+                android:id="@+id/autoinput_cctj_cx"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:background="@null"
-                android:hint="请输入车型"
-                android:inputType="number"
-                android:paddingLeft="2dp"
-                android:textSize="20sp" />
+                android:hint="请输入车型" />
         </LinearLayout>
 
         <LinearLayout
@@ -176,14 +170,11 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/blackOutNumber3"
+                android:id="@+id/autoinput_cctj_qsz"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:background="@null"
-                android:hint="请输入起始站"
-                android:inputType="number"
-                android:paddingLeft="2dp"
-                android:textSize="20sp" />
+                android:hint="请输入起始站" />
         </LinearLayout>
 
         <LinearLayout
@@ -203,14 +194,11 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/blackOutNumber4"
+                android:id="@+id/autoinput_cctj_zdz"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:background="@null"
-                android:hint="请输入终点站"
-                android:inputType="number"
-                android:paddingLeft="2dp"
-                android:textSize="20sp" />
+                android:hint="请输入终点站" />
         </LinearLayout>
 
 
@@ -218,12 +206,11 @@
 
 
     <Button
-        android:id="@+id/add_cztj"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
+        android:id="@+id/bt_add"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:background="0000000"
         android:scaleType="fitCenter"
         android:text="添加"
         android:textSize="20sp" />

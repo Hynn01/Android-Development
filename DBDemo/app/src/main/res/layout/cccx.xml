@@ -3,6 +3,7 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
 
@@ -20,7 +21,7 @@
             android:layout_centerInParent="true"
             android:gravity="center"
             android:textColor="@android:color/black"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:text="车次查询" />
 
         <!--"返回"图片按钮-->
@@ -31,15 +32,14 @@
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="15dp"
-            android:layout_marginRight="70dp"
+            android:layout_marginRight="83dp"
             android:layout_marginBottom="15dp"
             android:layout_toLeftOf="@id/zzcx_title"
             android:background="#00FFFFFF"
             android:padding="2dp"
             android:src="@android:drawable/ic_menu_revert" />
-
-
     </RelativeLayout>
+
     <!--广告轮播-->
     <RelativeLayout
         android:id="@+id/second_rel"
@@ -49,11 +49,12 @@
 
         <com.youth.banner.Banner
             xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/banner"
+            android:id="@+id/banner_zzcx"
             android:layout_width="match_parent"
             android:layout_height="250dp" />
 
     </RelativeLayout>
+
     <!--<RelativeLayout-->
         <!--android:id="@+id/second_rel"-->
         <!--android:layout_width="match_parent"-->
@@ -96,7 +97,7 @@
     <LinearLayout
         android:id="@+id/third_rel"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="180dp"
         android:layout_below="@id/second_rel"
         android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
@@ -113,36 +114,35 @@
             android:gravity="left|center_horizontal"
             android:orientation="horizontal"
             android:paddingLeft="10dp"
-            android:paddingTop="0dp"
+            android:paddingTop="10dp"
             android:paddingBottom="0dp">
 
             <TextView
                 android:layout_width="80dp"
                 android:layout_height="50dp"
-                android:text="车次:"
+                android:text="车名:"
                 android:textSize="20sp" />
 
-            <EditText
-                android:id="@+id/blackOutNumber1"
+            <AutoCompleteTextView
+                android:id="@+id/autoinput_cccx_cc"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:background="@null"
-                android:hint="请输入要查询的车次"
-                android:inputType="number"
-                android:paddingLeft="2dp"
-                android:textSize="20sp" />
+                android:hint="请输入车次" />
         </LinearLayout>
 
 
     </LinearLayout>
 
     <Button
-        android:id="@+id/search_cccx"
-
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:text="查询"
-        android:background="0000000"
+        android:id="@+id/searchButton_cccx"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:textSize="20sp" />
+        android:scaleType="fitCenter"
+        android:text="查询"
+        android:textSize="20sp"
+        app:srcCompat="@drawable/search" />
+
 </LinearLayout>
