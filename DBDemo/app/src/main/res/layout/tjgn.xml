@@ -23,11 +23,11 @@
             android:gravity="center"
             android:text="站次添加"
             android:textColor="@android:color/black"
-            android:textSize="20sp" />
+            android:textSize="30sp" />
 
         <!--"返回"图片按钮-->
         <ImageButton
-            android:id="@+id/back_zctj"
+            android:id="@+id/back_czcx"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_centerHorizontal="true"
@@ -46,7 +46,6 @@
 
 
     </RelativeLayout>
-
     <!--广告轮播-->
     <RelativeLayout
         android:id="@+id/second_rel"
@@ -56,7 +55,7 @@
 
         <com.youth.banner.Banner
             xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/banner_tjgn"
+            android:id="@+id/banner"
             android:layout_width="match_parent"
             android:layout_height="250dp" />
 
@@ -106,11 +105,19 @@
         android:layout_below="@id/second_rel"
         android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
         android:orientation="vertical">
+
+
+        <Button
+            android:id="@+id/bt_tjcc"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Bus车次添加"
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/bt_tjcz"
@@ -120,18 +127,14 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/bt_tjcc"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="车次添加"
-            android:textSize="20sp" />
-
-        <Button
             android:id="@+id/bt_tjgx"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:text="车站车次关系添加"
+            android:text="车站关系添加"
             android:textSize="20sp" />
+
+
+
 
     </LinearLayout>
 

@@ -21,32 +21,18 @@
             android:gravity="center"
             android:text="站站查询"
             android:textColor="#000000"
-            android:textSize="20sp" />
+            android:textSize="30sp" />
 
         <!--"返回"图片按钮-->
-        <!--<ImageButton-->
-            <!--android:id="@+id/back_zzcx"-->
-            <!--android:layout_width="50dp"-->
-            <!--android:layout_height="50dp"-->
-            <!--android:layout_marginLeft="5dp"-->
-            <!--android:layout_marginTop="5dp"-->
-            <!--android:layout_marginRight="83dp"-->
-            <!--android:layout_toLeftOf="@id/zzcx_title"-->
-            <!--android:background="#00FFFFFF"-->
-            <!--android:src="@android:drawable/ic_menu_revert" />-->
-
         <ImageButton
             android:id="@+id/back_zzcx"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_centerHorizontal="true"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="70dp"
-            android:layout_marginBottom="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="83dp"
             android:layout_toLeftOf="@id/zzcx_title"
             android:background="#00FFFFFF"
-            android:padding="2dp"
             android:src="@android:drawable/ic_menu_revert" />
 
     </RelativeLayout>
@@ -136,8 +122,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@null"
-                android:hint="请输入起始站名" />
-
+                android:hint="请输入起始站名"
+                android:inputType="number"
+                android:paddingLeft="2dp"
+                android:textSize="20sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -162,6 +150,7 @@
                 android:layout_height="50dp"
                 android:background="@null"
                 android:hint="请输入终点站名"
+                android:inputType="number"
                 android:paddingLeft="2dp"
                 android:textSize="20sp" />
         </LinearLayout>
@@ -169,13 +158,14 @@
 
     <Button
         android:id="@+id/searchButton"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:scaleType="fitCenter"
         android:text="查询"
         android:textSize="20sp"
+        android:background="0000000"
         app:srcCompat="@drawable/search" />
 
 </LinearLayout>

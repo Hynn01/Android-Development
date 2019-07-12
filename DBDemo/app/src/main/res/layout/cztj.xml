@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -11,7 +13,7 @@
         android:layout_height="60dp"
         android:layout_alignParentTop="true">
 
-        <!--//车站查询-->
+        //站站查询
 
         <TextView
             android:id="@+id/cztj_title"
@@ -20,13 +22,13 @@
             android:layout_centerInParent="true"
             android:gravity="center"
             android:textColor="#000000"
-            android:textSize="20sp"
-            android:text="车站添加" />
+            android:textSize="30sp"
+            tools:text="车站添加" />
 
-        <!--//"返回"图片按钮-->
+        //"返回"图片按钮
 
         <ImageButton
-            android:id="@+id/bt_back"
+            android:id="@+id/back_cztj"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="5dp"
@@ -120,12 +122,14 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/autoinput_cztj_name"
+                android:id="@+id/blackOutNumber1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:background="@null"
-                android:hint="请输入车站名称" />
-
+                android:hint="请输入车站名称"
+                android:inputType="number"
+                android:paddingLeft="2dp"
+                android:textSize="20sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -145,25 +149,27 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/autoinput_cztj_simname"
+                android:id="@+id/blackOutNumber2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:background="@null"
                 android:hint="请输入车站简称"
-                android:digits="abcdefghigklmnopqrstuvwxyzQWERTYUIOPASDFGHJKLZXCVBNM"/>
+                android:inputType="number"
+                android:paddingLeft="2dp"
+                android:textSize="20sp" />
         </LinearLayout>
 
 
     </LinearLayout>
 
     <Button
-        android:id="@+id/bt_add"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
+        android:id="@+id/add_cztj"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
+        android:background="0000000"
         android:scaleType="fitCenter"
         android:text="添加"
         android:textSize="20sp" />
-
 </LinearLayout>

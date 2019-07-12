@@ -14,52 +14,29 @@
 
         <!--//关系添加-->
 
-        <!--<TextView-->
-            <!--android:id="@+id/gctj_title"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="80dp"-->
-            <!--android:layout_centerInParent="true"-->
-            <!--android:gravity="center"-->
-            <!--android:textColor="#000000"-->
-            <!--android:textSize="20sp"-->
-            <!--tools:text="车站车次关系添加" />-->
-
-        <!--&lt;!&ndash;//"返回"图片按钮&ndash;&gt;-->
-
-        <!--<ImageButton-->
-            <!--android:id="@+id/back_gctj"-->
-            <!--android:layout_width="50dp"-->
-            <!--android:layout_height="50dp"-->
-            <!--android:layout_marginLeft="5dp"-->
-            <!--android:layout_marginTop="5dp"-->
-            <!--android:layout_marginRight="37dp"-->
-            <!--android:layout_toLeftOf="@id/gctj_title"-->
-            <!--android:background="#00FFFFFF"-->
-            <!--android:src="@android:drawable/ic_menu_revert" />-->
-        <!--//车次添加-->
-
         <TextView
-            android:id="@+id/cctj_title"
+            android:id="@+id/gctj_title"
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
+            android:layout_height="80dp"
             android:layout_centerInParent="true"
             android:gravity="center"
-            android:textColor="#020202"
-            android:textSize="20sp"
-            android:text="关系添加" />
+            android:textColor="#000000"
+            android:textSize="30sp"
+            tools:text="车站车次关系添加" />
 
         <!--//"返回"图片按钮-->
 
         <ImageButton
-            android:id="@+id/bt_back"
+            android:id="@+id/back_gctj"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
-            android:layout_marginRight="83dp"
-            android:layout_toLeftOf="@id/cctj_title"
+            android:layout_marginRight="40dp"
+            android:layout_toLeftOf="@id/gctj_title"
             android:background="#00FFFFFF"
             android:src="@android:drawable/ic_menu_revert" />
+
 
     </RelativeLayout>
     <!--广告轮播-->
@@ -144,11 +121,14 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/autoinput_gxtj_cc"
+                android:id="@+id/blackOutNumber1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:background="@null"
-                android:hint="请输入车次" />
+                android:hint="请输入车次"
+                android:inputType="number"
+                android:paddingLeft="2dp"
+                android:textSize="20sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -168,46 +148,59 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/autoinput_gxtj_zm"
+                android:id="@+id/blackOutNumber2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:background="@null"
-                android:hint="请输入站名" />
+                android:hint="请输入站名"
+                android:inputType="number"
+                android:paddingLeft="2dp"
+                android:textSize="20sp" />
         </LinearLayout>
 
-        <!--<LinearLayout-->
-            <!--android:id="@+id/blackOutLayoutNumber3"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="50dp"-->
-            <!--android:gravity="left|center_horizontal"-->
-            <!--android:orientation="horizontal"-->
-            <!--android:paddingLeft="10dp"-->
-            <!--android:paddingTop="0dp"-->
-            <!--android:paddingBottom="0dp">-->
+        <LinearLayout
+            android:id="@+id/blackOutLayoutNumber3"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="left|center_horizontal"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp">
 
-            <!--<TextView-->
-                <!--android:layout_width="100dp"-->
-                <!--android:layout_height="50dp"-->
-                <!--android:text="站次:"-->
-                <!--android:textSize="20sp" />-->
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="站次:"
+                android:textSize="20sp" />
 
-            <!--<EditText-->
-                <!--android:id="@+id/autoinput_gxtj_zc"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:background="@null"-->
-                <!--android:hint="请输入站次" />-->
-        <!--</LinearLayout>-->
+            <EditText
+                android:id="@+id/blackOutNumber3"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@null"
+                android:hint="请输入站次"
+                android:inputType="number"
+                android:paddingLeft="2dp"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+
+
 
     </LinearLayout>
 
+
+
     <Button
-        android:id="@+id/bt_add"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
+        android:id="@+id/add_cztj"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
+        android:background="0000000"
         android:scaleType="fitCenter"
         android:text="添加"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        />
 </LinearLayout>

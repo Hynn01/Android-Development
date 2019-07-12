@@ -3,15 +3,13 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_marginLeft="10dp"
-    android:layout_marginRight="10dp">
+    android:orientation="vertical">
 
 
     <RelativeLayout
         android:id="@+id/first_rel"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="100dp"
         android:layout_alignParentTop="true">
 
         <!--车次查询-->
@@ -21,19 +19,19 @@
             android:layout_height="60dp"
             android:layout_centerInParent="true"
             android:gravity="center"
-            android:text="关于"
             android:textColor="@android:color/black"
-            android:textSize="20sp" />
+            android:textSize="30sp"
+            android:text="关于" />
 
         <!--"返回"图片按钮-->
         <ImageButton
-            android:id="@+id/bt_back"
+            android:id="@+id/back_cccx"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="15dp"
-            android:layout_marginRight="113dp"
+            android:layout_marginRight="100dp"
             android:layout_marginBottom="15dp"
             android:layout_toLeftOf="@id/about_title"
             android:background="#00FFFFFF"
@@ -48,8 +46,8 @@
                 android:layout_height="wrap_content"
                 android:singleLine="false"
                 android:text="软件名称：北京公交查询助手
-                                        软件版本:1.0"
-                android:textSize="15sp" />
+                                        软件版本："
+                android:textSize="20sp" />
 
 
 

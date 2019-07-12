@@ -18,15 +18,15 @@
             android:gravity="center"
             android:text="@string/main_title"
             android:textColor="#000000"
-            android:textSize="22sp" />
+            android:textSize="30sp" />
 
         <!--"关于"图片按钮-->
         <ImageButton
             android:id="@+id/bt_about"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="5dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="20dp"
             android:layout_toLeftOf="@id/main_title"
@@ -36,14 +36,15 @@
         <!--"帮助"图片按钮-->
         <ImageButton
             android:id="@+id/bt_help"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="15dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="5dp"
             android:layout_toRightOf="@id/main_title"
             android:background="#00FFFFFF"
             android:src="@drawable/help" />
+
 
     </RelativeLayout>
 
@@ -62,149 +63,112 @@
 
     </RelativeLayout>
 
-    <!--&lt;!&ndash;查询布局&ndash;&gt;-->
     <!--<RelativeLayout-->
-        <!--android:id="@+id/third_rel"-->
+        <!--android:id="@+id/second_rel"-->
         <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_below="@id/second_rel">-->
+        <!--android:layout_height="250dp"-->
+        <!--android:layout_below="@id/first_rel">-->
 
-        <!--&lt;!&ndash;"站站查询"图片按钮&ndash;&gt;-->
-        <!--<ImageButton-->
-            <!--android:id="@+id/bt_zzcx"-->
-            <!--android:layout_width="150dp"-->
-            <!--android:layout_height="150dp"-->
-            <!--android:layout_marginLeft="20dp"-->
-            <!--android:layout_marginTop="20dp"-->
-            <!--android:background="#00FFFFFF"-->
-            <!--android:scaleType="fitCenter"-->
-            <!--android:src="@drawable/zzcx" />-->
+        <!--<android.support.v4.view.ViewPager-->
+            <!--android:id="@+id/viewPager"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent" />-->
 
-        <!--&lt;!&ndash;"车次查询"图片按钮&ndash;&gt;-->
-        <!--<ImageButton-->
-            <!--android:id="@+id/bt_cccx"-->
-            <!--android:layout_width="150dp"-->
-            <!--android:layout_height="150dp"-->
-            <!--android:layout_marginLeft="70dp"-->
-            <!--android:layout_marginTop="20dp"-->
-            <!--android:layout_marginRight="20dp"-->
-            <!--android:layout_toRightOf="@id/bt_zzcx"-->
-            <!--android:background="#00FFFFFF"-->
-            <!--android:scaleType="fitCenter"-->
-            <!--android:src="@drawable/cccx" />-->
-
-        <!--&lt;!&ndash;"车站查询"图片按钮&ndash;&gt;-->
-
-        <!--<ImageButton-->
-            <!--android:id="@+id/bt_czcx"-->
-            <!--android:layout_width="150dp"-->
-            <!--android:layout_height="150dp"-->
-            <!--android:layout_alignParentStart="true"-->
-            <!--android:layout_alignParentLeft="true"-->
+        <!--<LinearLayout android:id="@+id/dotLayout"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
             <!--android:layout_alignParentBottom="true"-->
-            <!--android:layout_marginLeft="20dp"-->
-            <!--android:layout_marginBottom="30dp"-->
-            <!--android:background="#00FFFFFF"-->
-            <!--android:scaleType="fitCenter"-->
-            <!--android:src="@drawable/czcx" />-->
+            <!--android:padding="8dp"-->
+            <!--android:gravity="right"-->
+            <!--android:orientation="horizontal">-->
 
-        <!--&lt;!&ndash;"站次添加"图片按钮&ndash;&gt;-->
+            <!--<View-->
+                <!--android:id="@+id/v_dot1"-->
+                <!--android:layout_width="8dp"-->
+                <!--android:layout_height="8dp"-->
+                <!--android:background="@drawable/dot_focus" />-->
 
-        <!--<ImageButton-->
-            <!--android:id="@+id/bt_tjgn"-->
-            <!--android:layout_width="150dp"-->
-            <!--android:layout_height="150dp"-->
-            <!--android:layout_alignParentBottom="true"-->
-            <!--android:layout_marginLeft="70dp"-->
-            <!--android:layout_marginRight="20dp"-->
-            <!--android:layout_marginBottom="30dp"-->
-            <!--android:layout_toRightOf="@id/bt_czcx"-->
-            <!--android:background="#00FFFFFF"-->
-            <!--android:scaleType="fitCenter"-->
-            <!--android:src="@drawable/zctj" />-->
+            <!--<View-->
+                <!--android:id="@+id/v_dot2"-->
+                <!--android:layout_width="8dp"-->
+                <!--android:layout_height="8dp"-->
+                <!--android:layout_marginLeft="5dp"-->
+                <!--android:background="@drawable/dot_blur" />-->
+
+        <!--</LinearLayout>-->
+
 
     <!--</RelativeLayout>-->
 
+
     <!--查询布局-->
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/third_rel"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/second_rel"
-        android:orientation="vertical"
-        android:layout_marginTop="10dp">
+        android:layout_below="@id/second_rel">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:layout_below="@id/second_rel"
-            android:orientation="horizontal">
+        <!--"站站查询"图片按钮-->
+        <ImageButton
+            android:id="@+id/bt_zzcx"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
+            android:src="@drawable/zzcx" />
 
-            <!--"站站查询"图片按钮-->
-            <ImageButton
-                android:id="@+id/bt_zzcx"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="20dp"
-                android:background="#00FFFFFF"
-                android:scaleType="fitCenter"
-                android:src="@drawable/zzcx" />
-
-            <!--"车次查询"图片按钮-->
-            <ImageButton
-                android:id="@+id/bt_cccx"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginLeft="60dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_toRightOf="@id/bt_zzcx"
-                android:background="#00FFFFFF"
-                android:scaleType="fitCenter"
-                android:src="@drawable/cccx" />
-
-        </LinearLayout>
+        <!--"车次查询"图片按钮-->
+        <ImageButton
+            android:id="@+id/bt_cccx"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_toRightOf="@id/bt_zzcx"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
+            android:src="@drawable/cccx" />
 
         <!--"车站查询"图片按钮-->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:layout_below="@id/second_rel"
-            android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/bt_czcx"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="30dp"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
+            android:src="@drawable/czcx" />
 
-            <ImageButton
-                android:id="@+id/bt_czcx"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="50dp"
-                android:layout_marginBottom="30dp"
-                android:background="#00FFFFFF"
-                android:scaleType="fitCenter"
-                android:src="@drawable/czcx" />
+        <!--"站次添加"图片按钮-->
 
-            <!--"站次添加"图片按钮-->
+        <ImageButton
+            android:id="@+id/bt_tjgn"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="70dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="30dp"
+            android:layout_toRightOf="@id/bt_czcx"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
+            android:src="@drawable/zctj" />
 
-            <ImageButton
-                android:id="@+id/bt_tjgn"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="60dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="30dp"
-                android:layout_toRightOf="@id/bt_czcx"
-                android:background="#00FFFFFF"
-                android:scaleType="fitCenter"
-                android:src="@drawable/zctj" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
+    </RelativeLayout>
+    
+    
+    <!--<Button-->
+        <!--android:id="@+id/bt1"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="111" />-->
 
 </RelativeLayout>
