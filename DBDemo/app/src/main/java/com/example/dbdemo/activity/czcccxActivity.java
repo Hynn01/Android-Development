@@ -81,26 +81,29 @@ public class czcccxActivity extends Activity {
 
                 final String czcx_zc=autoinput_czcx_zc.getText().toString();
                 int station_id=application.getDao().getStationIdByName(czcx_zc);
-                System.out.println("cz_child:"+cz_child);
-                System.out.println("cz_match:"+cz_match);
                 System.out.println("czcx_zc:"+czcx_zc);
                 System.out.println("station_id:"+station_id);
                 result=application.getDao().getBusArrayList(station_id);
-                System.out.println("bus_result:"+result);
-                //String[] result1=(String[])result.toArray();
+                System.out.println("station_result:"+result);
+//                String[] result1=(String[])result.toArray();
                 //String[] result1=new String[]{"a1,b1,c2","a2,s2,d3","s2,d2,e3"};
+                String[] result1=new String[100];
+                for(int i=0;i<result.size();i++){
+                    result1[i]=result.get(i).name;
+                }
+                System.out.println(result1);
 
                 //（10）如果查询结果为空
                 //（11）发toast消息提醒
                 //（12）否则切换到结果listview界面
-//                if(result1==null){
-//                    Toast toast = Toast.makeText(czcccxActivity.this, "没有查询结果", Toast.LENGTH_SHORT);
-//                    toast.show();
-//                }else{
-//                    Intent intent = new Intent(czcccxActivity.this,czcxjgActivity.class);
-//                    intent.putExtra("result1",result1);
-//                    startActivity(intent);
-//                }
+                if(result.size()==0){
+                    Toast toast = Toast.makeText(czcccxActivity.this, "没有查询结果", Toast.LENGTH_SHORT);
+                    toast.show();
+                }else{
+                    Intent intent = new Intent(czcccxActivity.this,czcxjgActivity.class);
+                    intent.putExtra("result1",result1);
+                    startActivity(intent);
+                }
 
             }
         });

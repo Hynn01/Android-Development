@@ -29,7 +29,7 @@ public class cccxjgActivity extends Activity {
         Intent i = getIntent();
         //result=new String[]{"a1,b1,c2","a2,s2,d3","s2,d2,e3"};
         result=i.getStringArrayExtra("result1");
-        result=new String[]{"a1,b1,c2","a2,s2,d3","s2,d2,e3"};
+//        result=new String[]{"a1,b1,c2","a2,s2,d3","s2,d2,e3"};
         //result=new zzcxActivity()
         //建立ListView对应的适配器
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,result);

@@ -76,7 +76,8 @@ public class Graph {
         }
     }
     //用所有的线路建图
-    public void construct(ArrayList<Bus> buses){
+    public void construct(ArrayList<Bus> buses, int v){
+        V = v;
         System.out.println("由数据源建图如下：");
         for(Bus bus : buses){
             System.out.println(bus.toString());
@@ -159,6 +160,7 @@ public class Graph {
         System.out.println("边路径的条数" + edgePaths.size());
         System.out.println("点路径集合 ： " + nodePaths);
         System.out.println("边路径集合 ： " + edgePaths);
+
         Station start = stations.get(u-1);
         Station end = stations.get(v-1);
         System.out.println("start = " + start.station_ID + " end = " + end.station_ID);

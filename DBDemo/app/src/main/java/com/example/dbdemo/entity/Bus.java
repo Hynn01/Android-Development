@@ -15,6 +15,15 @@ public class Bus {
 
     //属性
     public int bus_ID;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String name;
     public int oStation;
     public int terminus;
@@ -57,4 +66,6 @@ public class Bus {
        String result = "线路id = " + this.bus_ID + " 线路名:" + this.name;
         return result;
     }
+
+
 }

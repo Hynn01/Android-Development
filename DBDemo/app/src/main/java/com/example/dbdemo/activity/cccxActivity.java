@@ -75,21 +75,27 @@ public class cccxActivity extends Activity {
         ArrayAdapter<String> cc_adapter=new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,cc_match);
         autoinput_cccx_cc.setAdapter(cc_adapter);
 
-        final String  cccx_cc=autoinput_cccx_cc.getText().toString();
-
-
         bt_query.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //todo:查询
+                final String  cccx_cc=autoinput_cccx_cc.getText().toString();
+                System.out.println("cccx_cc:"+cccx_cc);
+
                 result=application.getDao().getStationArrayList(application.getDao().getBusIdByName(cccx_cc));
-                String[] result1=(String[])result.toArray();
-                result1=new String[]{"a1,b1,c2","a2,s2,d3","s2,d2,e3"};
-                //        //（10）如果查询结果为空，则应有无输出信息提示
-                //        //（11）这时发toast信息提醒用户
-                //        //（12）否则查询结果不为空
-                //        //（13）切换到查询结果界面，由listview界面输出结果
-                if(result1==null){
+                System.out.println(result);
+
+                String[] result1=new String[100];
+                for(int i=0;i<result.size();i++){
+                    result1[i]=result.get(i).name;
+                }
+                System.out.println(result1);
+//                String[] result1=(String[])result.toArray();
+//                result1=new String[]{"a","b","c"};
+                //（10）如果查询结果为空，则应有无输出信息提示
+                //（11）这时发toast信息提醒用户
+                //（12）否则查询结果不为空
+                //（13）切换到查询结果界面，由listview界面输出结果
+                if(result.size()==0){
                     Toast toast = Toast.makeText(cccxActivity.this, "没有查询结果", Toast.LENGTH_SHORT);
                     toast.show();
                 }else{
@@ -97,7 +103,6 @@ public class cccxActivity extends Activity {
                     intent.putExtra("result1",result1);
                     startActivity(intent);
                 }
-//
             }
         });
 

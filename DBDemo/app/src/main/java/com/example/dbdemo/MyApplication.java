@@ -33,12 +33,10 @@ public class MyApplication extends Application {
         initData();
         checkData();
         //建图
-        G.construct(buses);
-
+        G.construct(buses , repo.getStationCount());
         //看图
         System.out.println("看图");
         G.show();
-
     }
     public void checkData(){
         System.out.println("检查数据：");
@@ -53,7 +51,6 @@ public class MyApplication extends Application {
         int n = repo.getBusCount();
         //station 数据
         int m = repo.getStationCount();
-        G.setV(m);
         //看一下记录数是否正确
         System.out.println("StationCount , BusCount = " + m + " "+ n);
         for(int i=1;i<=n;i++){
@@ -135,15 +132,43 @@ public class MyApplication extends Application {
         this.buses = buses;
     }
 
+    public Boolean insertStaionBusRelation(String bus_name , String station_name){
+        System.out.println("InsertRelation Called : " + bus_name + " " + station_name);
+        boolean result = repo.insertTransByValue(bus_name , station_name, null,null);
+        if(!result) return false;
+        System.out.println("result = " + result);
+        //更新 buses
+        for(Bus b : buses){
+            if(b.getName() == bus_name){
+                Station s = repo.getStationByName(station_name);
+                System.out.println("要插入的站 ：" + s+" 要插入的Bus"+b);
+                b.addStation(s); //更新 buser 里的该bus
+                stations.add(s); //更新 stations
+                break;
+            }
+        }
+        System.out.println("Buses Arrarlist: ");
+        for(Bus bus : buses){
+            System.out.println(bus);
+            for(Station station : bus.stations){
+                System.out.println(station);
+            }
+        }
+        G = new Graph();
+        G.construct(buses,stations.size());
+        System.out.println("Graph @!!!!!!!!!!");
+        G.show();
+        return true;
 
+    }
 
-    // 车次查询  参数：线路名字
-
-    //车站查询  参数 车站名字
-
-    //车次添加 添加车次号  车型  起始站  终点站
-
-    //车站添加 车站名字  车站简称
-
-    // 站次关系 车站  车次
 }
+// 车次查询  参数：线路名字  返回车次对象BUS
+
+//车站查询  参数 车站名字  返回车站对象Station
+
+//车次添加 添加车次号  车型  起始站  终点站  返回是否插入成功 Boolean
+
+//车站添加 车站名字  车站简称   返回是否插入成功 Boolean
+
+// 站次关系 添加 车站  车次    返回是否插入成功 Boolean

@@ -8,8 +8,10 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.example.dbdemo.MyApplication;
+import com.example.dbdemo.dao.Repo;
 import com.example.dbdemo.entity.Bus;
 import com.example.dbdemo.entity.Station;
+import com.example.dbdemo.entity.Trancepos;
 import com.youth.banner.Banner;
 
 import com.example.dbdemo.R;
@@ -28,17 +30,39 @@ public class MainActivity extends Activity {
 
     MyApplication app;
 
+    Repo repo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         app=(MyApplication) this.getApplication();
-        //先清空
+        repo=app.getDao();
+//        //先清空
 //        app.getDao().getDbHelper().onUpgrade(app.getDao().getDb() , 3 ,4);
-//        Bus bus = new Bus();
-//        bus.name = "a";
+//        //往里面插一些测试数据
+//        //插入车站
+//        Station station1 = new Station();
+//        station1.name = "cuc";
+//        Station station2 = new Station();
+//        station2.name = "ddd";
+//        app.getDao().insertStation(station1);
+//        app.getDao().insertStation(station2);
+//
+//        //插入车次
+//        int station1_id=app.getDao().getStationIdByName("cuc");
+//        int station2_id=app.getDao().getStationIdByName("ddd");
+//        Bus bus = new Bus("111","大巴",station1_id,station2_id);
 //        app.getDao().insertBus(bus);
-//        Station station = new Station();
-//        station.name = "cuc";
+//
+//        //插入车站车次关系
+//        int bus_id=app.getDao().getBusIdByName("111");
+//        Trancepos t1=new Trancepos(bus_id,station1_id);
+//        app.getDao().insertTrancepos(t1);
+//        Trancepos t2=new Trancepos(bus_id,station2_id);
+//        app.getDao().insertTrancepos(t2);
+
+        insertData();
+        System.out.println(app.findPathMiddle(1,12));
 
         //（1）一开始进入莱单界面方法就是goToMainMenu()函数
         //（2）切换到莱单界面 使用setContentView（）
@@ -127,4 +151,84 @@ public class MainActivity extends Activity {
         });
     }
 
-}
+
+    public void insertData() {
+
+        ArrayList<Station> stations = new ArrayList<>();
+        ArrayList<Bus> buses = new ArrayList<>();
+
+
+        //先清空
+        //repo.getDbHelper().onUpgrade(repo.getDb(), 3, 4);
+
+        //station表
+        for (int i = 1; i <= 4; i++) {
+            for (int j = 1; j <= 5; j++) {
+                Station station = new Station();
+                station.name = "" + (char) (i + 96) + j;
+                station.station_ID = (i - 1) * 5 + j;
+                //插入station
+                stations.add(station);
+                //数据库插入
+                //TODO
+                repo.insertStation(station);
+            }
+        }
+        //bus表
+        for (int i = 1; i <= 4; i++) {
+            Bus bus = new Bus();
+            bus.bus_ID = i;
+            bus.name = "" + (char) (i + 64);
+            bus.oStation = (i - 1) * 5 + 1;
+            bus.terminus = 5 * i;
+            buses.add(bus);
+            //插入bus到数据库
+            //TODO
+            repo.insertBus(bus);
+        }
+
+        //站次表
+        for (int i = 1; i <= 20; i++) {
+            Trancepos trans = new Trancepos();
+            trans.trancepos_ID = i;
+            trans.bus_ID = (i - 1) / 5 + 1;
+            trans.station_ID = i;
+            //插入站次到数据库
+            //TODO
+            repo.insertTrancepos(trans);
+        }
+
+        //额外再加两个线路
+        Bus s1 = new Bus();
+        s1.bus_ID = 5;
+        s1.name = "E";
+        s1.oStation = 2;
+        s1.terminus = 17;
+        repo.insertBus(s1);
+
+        for (int i = 2; i <= 17; i += 5) {
+            Trancepos trans = new Trancepos();
+            trans.bus_ID = s1.bus_ID;
+            trans.station_ID = i;
+            //插入站次到数据库
+            repo.insertTrancepos(trans);
+        }
+
+        Bus s2 = new Bus();
+        s2.bus_ID = 6;
+        s2.name = "F";
+        s2.oStation = 4;
+        s2.terminus = 19;
+        repo.insertBus(s2);
+        for (int i = 4; i <= 19; i += 5) {
+            Trancepos trans = new Trancepos();
+            trans.bus_ID = s2.bus_ID;
+            trans.station_ID = i;
+            //插入站次到数据库
+            //TODO
+            repo.insertTrancepos(trans);
+        }
+    }
+
+
+    }

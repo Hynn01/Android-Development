@@ -26,7 +26,7 @@ public class Repo {
     //增
     public int insertBus(Bus bus){
         ContentValues values = new ContentValues();
-        values.put(Bus.KEY_name,bus.name);
+        values.put(Bus.KEY_name,bus.getName());
         values.put(Bus.KEY_originatingStation,bus.oStation);
         values.put(Bus.KEY_terminus,bus.terminus);
         values.put(Bus.KEY_type,bus.type);
@@ -96,7 +96,7 @@ public class Repo {
 
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(Bus.KEY_name,bus.name);
+        values.put(Bus.KEY_name,bus.getName());
         values.put(Bus.KEY_originatingStation,bus.oStation);
         values.put(Bus.KEY_terminus,bus.terminus);
         values.put(Bus.KEY_type,bus.type);
@@ -370,6 +370,7 @@ public class Repo {
         Iterator iterator = busIdList.iterator();
         while(iterator.hasNext()){
             Bus bus = getBusById1((int)iterator.next());
+            busList.add(bus);
         }
         return busList;
     }
@@ -513,4 +514,67 @@ public class Repo {
         this.db = db;
     }
 
+    //车次查询
+    public Bus getBusByName(String bus_name){
+        int bus_id = getBusIdByName(bus_name);
+        return getBusById(bus_id);
+    }
+    //车站查询
+    public Station getStationByName(String station_name){
+        int station_id = getStationIdByName(station_name);
+        return getStationById(station_id);
+    }
+    //车次添加
+    public boolean insertBusByValue(String bus_name,String type,int oStation,int terminus){
+        if(busIsExistByName(bus_name)){
+            return false;
+        }
+        ContentValues values = new ContentValues();
+        values.put(Bus.KEY_name,bus_name);
+        values.put(Bus.KEY_originatingStation,oStation);
+        values.put(Bus.KEY_terminus,terminus);
+        values.put(Bus.KEY_type,true);
+
+        long bus_ID = db.insert(Bus.TABLE,null,values);
+        return true;
+    }
+    //车站添加
+    public boolean insertStationByValue(String station_name,int jc){
+        if(stationIsExistByName(station_name)){
+            return false;
+        }
+        ContentValues values = new ContentValues();
+        values.put(Station.KEY_name,station_name);
+        values.put(Station.KEY_Abbreviation,jc);
+
+        long station_ID = db.insert(Station.TABLE,null,values);
+        return true;
+    }
+    //关系添加
+    public boolean insertTransByValue(String bus_name,String station_name,String arrive,String leave){
+        if(tranceposIsExistByName(bus_name,station_name)){
+            return false;
+        }
+        ContentValues values = new ContentValues();
+        values.put(Trancepos.KEY_bus,getBusIdByName(bus_name));
+        values.put(Trancepos.KEY_station,getStationIdByName(station_name));
+        values.put(Trancepos.KEY_arrive,arrive);
+        values.put(Trancepos.KEY_leave,leave);
+
+        long trans_ID = db.insert(Trancepos.TABLE,null,values);
+        return true;
+    }
+
 }
+
+
+
+// 车次查询  参数：线路名字  返回车次对象BUS
+
+//车站查询  参数 车站名字  返回车站对象Station
+
+//车次添加 添加车次号  车型  起始站  终点站  返回是否插入成功 Boolean
+
+//车站添加 车站名字  车站简称   返回是否插入成功 Boolean
+
+// 站次关系 添加 车站  车次    返回是否插入成功 Boolean

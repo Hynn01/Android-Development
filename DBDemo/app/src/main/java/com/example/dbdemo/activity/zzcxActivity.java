@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.dbdemo.MyApplication;
 import com.example.dbdemo.R;
 import com.example.dbdemo.dao.Repo;
+import com.example.dbdemo.entity.Path;
 import com.youth.banner.Banner;
 
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ public class zzcxActivity extends Activity {
     private AutoCompleteTextView tv_start;
     private AutoCompleteTextView tv_end;
     private MyApplication application;//数据库操作
-    String[] result;//返回结果
+
     //（1）站站查询goTozzcxView()
     //（2）切换到站站查询界面
     //    用setContentView（）
@@ -81,11 +82,7 @@ public class zzcxActivity extends Activity {
         tv_start.setAdapter(start_adapter);
         tv_end.setAdapter(end_adapter);
 //
-//        //（14）由引用获取初始站文本
-//        //（15）由引用获取终点站文本
-//        //（16）由引用获取中转站文本
-        final String startStation=tv_start.getText().toString();
-        final String endStation=tv_end.getText().toString();
+
 
 //        //（17）声明存放结果集的向量这里可以使用Vector变量
 //        //（18）判断如果需要进行中转站查询则
@@ -93,23 +90,54 @@ public class zzcxActivity extends Activity {
 //        //（20）如果没有查询就通过Toast消息提醒用户
 //        //（21）否则进行不带中转站查询
 //        //（23）调用数据库查询
-//        //todo:调用数据库查询
-        result=null;
-////        //（10）为查询按钮添加监听
+
+
+        //（10）为查询按钮添加监听
         bt_query.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //todo:查询
-                result=new String[]{"a1,b1,c2","a2,s2,d3","s2,d2,e3"};
-//                result=(String[]) application.findPathDirectly(startStation,endStation).toArray();
-                if(result==null){
+
+            //（14）由引用获取初始站文本
+            //（15）由引用获取终点站文本
+            //（16）由引用获取中转站文本
+            final String startStation=tv_start.getText().toString();
+            final String endStation=tv_end.getText().toString();
+
+            //result=new String[]{"a1,b1,c2","a2,s2,d3","s2,d2,e3"};
+            //result=(String[]) application.findPathDirectly(startStation,endStation).toArray(new String[0]);
+            ArrayList<String> result=new ArrayList<String>();//返回结果
+//            result=null;
+            result=application.findPathDirectly(startStation,endStation);
+
+            if(result.size()==0){
+                int station1=application.getDao().getStationIdByName(startStation);
+                int station2=application.getDao().getStationIdByName(endStation);
+                ArrayList<Path> result1=new ArrayList<Path>();
+                result1=application.findPathMiddle(station1,station2);
+                if(result1.size()==0){
                     Toast toast = Toast.makeText(zzcxActivity.this, "没有查询结果", Toast.LENGTH_SHORT);
                     toast.show();
                 }else{
+                    String[] result2=new String[100];
+                    for(int i=0;i<result1.size();i++){
+                        result2[i]=result1.get(i).toString();
+                        System.out.println("string:"+result2[i]);
+                    }
                     Intent intent = new Intent(zzcxActivity.this,zzcxjgActivity.class);
-                    intent.putExtra("result",result);
+                    intent.putExtra("result",result2);
                     startActivity(intent);
+//                    Toast toast = Toast.makeText(zzcxActivity.this, "有查询结果", Toast.LENGTH_SHORT);
+//                    toast.show();
                 }
+            }else{
+                String[] result3=new String[100];
+                for(int i=0;i<result.size();i++){
+                    result3[i]=result.get(i).toString();
+                }
+                Intent intent = new Intent(zzcxActivity.this,zzcxjgActivity.class);
+                intent.putExtra("result",result3);
+                startActivity(intent);
+            }
 
             }
         });
