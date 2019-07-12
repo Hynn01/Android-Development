@@ -99,7 +99,12 @@ public class cccxActivity extends Activity {
                     Toast toast = Toast.makeText(cccxActivity.this, "没有查询结果", Toast.LENGTH_SHORT);
                     toast.show();
                 }else{
+                    for(int i=0; i<100; i++){
+                        if(result1[i] == null) break;
+                        System.out.println(result1[i] + " ... ");
+                    }
                     Intent intent = new Intent(cccxActivity.this,cccxjgActivity.class);
+
                     intent.putExtra("result1",result1);
                     startActivity(intent);
                 }

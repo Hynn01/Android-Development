@@ -76,8 +76,7 @@ public class Graph {
         }
     }
     //用所有的线路建图
-    public void construct(ArrayList<Bus> buses, int v){
-        V = v;
+    public void construct(ArrayList<Bus> buses){
         System.out.println("由数据源建图如下：");
         for(Bus bus : buses){
             System.out.println(bus.toString());

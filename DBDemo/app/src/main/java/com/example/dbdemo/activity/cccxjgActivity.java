@@ -11,28 +11,39 @@ import android.widget.ListView;
 
 import com.example.dbdemo.R;
 
+import java.util.ArrayList;
+
 //车次查询结果
 public class cccxjgActivity extends Activity {
     private String[] result;
+    private ArrayList<String> result_arr;
     private ImageButton bt_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cccxjg);
-
+        System.out.println("我进来啦！！！！");
+        result=new String[100];
+        result_arr = new ArrayList<>();
         //（5）返回按钮引用
         bt_back=(ImageButton)findViewById(R.id.back_cccxjg);
 
         ListView listView = (ListView)findViewById(R.id.list_cccxjg);
-        //获取返回结果
+//        //获取返回结果
         Intent i = getIntent();
-        //result=new String[]{"a1,b1,c2","a2,s2,d3","s2,d2,e3"};
+//        result=new String[]{"a1,b1,c2","a2,s2,d3","s2,d2,e3"};
         result=i.getStringArrayExtra("result1");
+        for(int j=0; j<100; j++){
+            if(result[j] == null) break;
+            result_arr.add(result[j]);
+            System.out.println(result[j] + " ... ");
+        }
+
 //        result=new String[]{"a1,b1,c2","a2,s2,d3","s2,d2,e3"};
         //result=new zzcxActivity()
         //建立ListView对应的适配器
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,result);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,result_arr);
         listView.setAdapter(adapter);
 
         //（14）为返回按钮添加监听

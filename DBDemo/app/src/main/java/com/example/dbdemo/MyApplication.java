@@ -33,7 +33,7 @@ public class MyApplication extends Application {
         initData();
         checkData();
         //建图
-        G.construct(buses , repo.getStationCount());
+        G.construct(buses);
         //看图
         System.out.println("看图");
         G.show();
@@ -132,35 +132,36 @@ public class MyApplication extends Application {
         this.buses = buses;
     }
 
-    public Boolean insertStaionBusRelation(String bus_name , String station_name){
-        System.out.println("InsertRelation Called : " + bus_name + " " + station_name);
-        boolean result = repo.insertTransByValue(bus_name , station_name, null,null);
-        if(!result) return false;
-        System.out.println("result = " + result);
-        //更新 buses
-        for(Bus b : buses){
-            if(b.getName() == bus_name){
-                Station s = repo.getStationByName(station_name);
-                System.out.println("要插入的站 ：" + s+" 要插入的Bus"+b);
-                b.addStation(s); //更新 buser 里的该bus
-                stations.add(s); //更新 stations
-                break;
-            }
-        }
-        System.out.println("Buses Arrarlist: ");
-        for(Bus bus : buses){
-            System.out.println(bus);
-            for(Station station : bus.stations){
-                System.out.println(station);
-            }
-        }
-        G = new Graph();
-        G.construct(buses,stations.size());
-        System.out.println("Graph @!!!!!!!!!!");
-        G.show();
-        return true;
 
-    }
+//    public Boolean insertStaionBusRelation(String bus_name , String station_name){
+//        System.out.println("InsertRelation Called : " + bus_name + " " + station_name);
+//        boolean result = repo.insertTransByValue(bus_name , station_name, null,null);
+//        if(!result) return false;
+//        System.out.println("result = " + result);
+//        //更新 buses
+//        for(Bus b : buses){
+//            if(b.getName() == bus_name){
+//                Station s = repo.getStationByName(station_name);
+//                System.out.println("要插入的站 ：" + s+" 要插入的Bus"+b);
+//                b.addStation(s); //更新 buses 里的该bus
+//                stations.add(s); //更新 stations
+//                break;
+//            }
+//        }
+//        System.out.println("Buses Arrarlist: ");
+//        for(Bus bus : buses){
+//            System.out.println(bus);
+//            for(Station station : bus.stations){
+//                System.out.println(station);
+//            }
+//        }
+//        G = new Graph();
+//        G.construct(buses);
+//        System.out.println("Graph @!!!!!!!!!!");
+//        G.show();
+//        return true;
+//
+//    }
 
 }
 // 车次查询  参数：线路名字  返回车次对象BUS

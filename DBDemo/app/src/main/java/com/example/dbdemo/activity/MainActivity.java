@@ -37,32 +37,11 @@ public class MainActivity extends Activity {
 
         app=(MyApplication) this.getApplication();
         repo=app.getDao();
-//        //先清空
-//        app.getDao().getDbHelper().onUpgrade(app.getDao().getDb() , 3 ,4);
-//        //往里面插一些测试数据
-//        //插入车站
-//        Station station1 = new Station();
-//        station1.name = "cuc";
-//        Station station2 = new Station();
-//        station2.name = "ddd";
-//        app.getDao().insertStation(station1);
-//        app.getDao().insertStation(station2);
-//
-//        //插入车次
-//        int station1_id=app.getDao().getStationIdByName("cuc");
-//        int station2_id=app.getDao().getStationIdByName("ddd");
-//        Bus bus = new Bus("111","大巴",station1_id,station2_id);
-//        app.getDao().insertBus(bus);
-//
-//        //插入车站车次关系
-//        int bus_id=app.getDao().getBusIdByName("111");
-//        Trancepos t1=new Trancepos(bus_id,station1_id);
-//        app.getDao().insertTrancepos(t1);
-//        Trancepos t2=new Trancepos(bus_id,station2_id);
-//        app.getDao().insertTrancepos(t2);
-
         insertData();
         System.out.println(app.findPathMiddle(1,12));
+        System.out.println(repo.getBusByName("A"));
+        System.out.println(repo.getStationById(repo.getStationIdByName("a1")));
+
 
         //（1）一开始进入莱单界面方法就是goToMainMenu()函数
         //（2）切换到莱单界面 使用setContentView（）
@@ -157,9 +136,8 @@ public class MainActivity extends Activity {
         ArrayList<Station> stations = new ArrayList<>();
         ArrayList<Bus> buses = new ArrayList<>();
 
-
         //先清空
-        //repo.getDbHelper().onUpgrade(repo.getDb(), 3, 4);
+        repo.getDbHelper().onUpgrade(repo.getDb(), 3, 4);
 
         //station表
         for (int i = 1; i <= 4; i++) {
